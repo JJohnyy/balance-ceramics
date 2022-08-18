@@ -59,15 +59,6 @@ def product_list(request):
 
     current_sorting = f'Search by: {sort} {direction}'
    
-    context = {
-        'mugs': mugs,
-        'search': query,
-        'current_sorting': current_sorting,
-        'query': query,
-        'is_sorted': is_sorted,
-        'sortkey': sortkey,
-        'sort': sort,
-    }
 
-    return render(request, 'products/product_list.html', context)
+    return render(request, 'products/product_list.html')
 

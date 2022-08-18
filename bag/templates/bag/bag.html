@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Shopping Bag</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="col-12 col-lg-8 container m-auto background-white">
+        {% if bag_items %}
+        <div class="background-light-green px-3 px-sm-5 py-5 my-5">
+            {% for item in bag_items %}
+            <div class="row container-fluid my-3 p-0 mx-auto border-dark-green">
+                <div class="col-12 col-md-4 p-0 d-flex align-items-center justify-content-center">
+                    {% if "placeholder" in item.product.image.url or not item.product.image.url %}
+                    <img class="bag-image card-img-top p-0 m-0"
+                        src="{{ placeholder_image_url }}"
+                        alt="Placeholder image for {{ product.name }}">
+                    {% else %}
+                    <img class="bag-image card-img-top" src=" {{ item.product.image.url }}" alt="Image of {{ item.product.name }}">
+                    {% endif %}
+                </div>
+                <div class="col-12 col-md-8 my-3 p-0 d-flex flex-column align-items-center justify-content-center">
+                    <div class="row container-fluid p-0">
+                        <div class="col-12">
+                            <p class="my-0 text-sm my-3 px-3">Item:<span class="ms-3 text-header text-md">{{ item.product.name | title }}</span></p>
+                        </div>
+    
+                        <hr class="text-purple my-3 mx-auto w-75">
+    
+                        <div class="col-12 d-flex align-items-center">
+                            <p class="my-0 text-sm my-3 px-3">Price:<span class="ms-3 text-header text-md">{{ currency }}{{ item.product.price|floatformat:2 }}</span></p>
+                        </div>
+                    </div>
+    
+                    <!-- Quantity counter -->
+                    {% include 'components/items/quantity.html' %}
+    
+                </div>
+            </div>
+    
+            {% endfor %}
+    
+            <!-- Basket totals -->
+            {% include 'components/totals/totals.html' %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+</div>
+{% endblock %}
