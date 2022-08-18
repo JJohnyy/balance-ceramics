@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/bag/bag.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="overlay"></div>
 <div class="container mb-2">
@@ -37,17 +41,16 @@
                             <p class="my-0 text-sm my-3 px-3">Price:<span class="ms-3 text-header text-md">{{ currency }}{{ item.product.price|floatformat:2 }}</span></p>
                         </div>
                     </div>
-    
-                    <!-- Quantity counter -->
-                    {% include 'components/items/quantity.html' %}
-    
                 </div>
-            </div>
-    
             {% endfor %}
-    
-            <!-- Basket totals -->
-            {% include 'components/totals/totals.html' %}
+            <div class="row container-fluid mt-5 mx-auto justify-content-around">
+                <div class="col-12 col-lg-4 d-flex flex-column align-items-center justify-content-center">
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-md text-dark-green text-header mt-4">Basket Total: {{ currency }}{{ grand_total|floatformat:2 }}</p>
+                        </div>
+                    </div>
+                </div>
         </div>
         {% endif %}
     </div>
