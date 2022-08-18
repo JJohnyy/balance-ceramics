@@ -61,11 +61,11 @@ def checkout(request):
                         )
                         order_item.save()
                 except:
-                        Mugs.DoesNotExist
-                        messages.error(request, 'One of the items in your basket was not found \
-                        in our database. Please contact us for assistance.')
-                        order.delete()
-                        return redirect(reverse('view_bag'))
+                    Mugs.DoesNotExist
+                    messages.error(request, 'One of the items in your basket was not found \
+                    in our database. Please contact us for assistance.')
+                    order.delete()
+                    return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse(
