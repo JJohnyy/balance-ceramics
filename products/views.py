@@ -15,5 +15,59 @@ def product_list(request):
     view to show all products
     """
     products = Mugs.objects.all()
-    return render(request, 'products/product_list.html', {'products': products})
+
+    sort = None
+    query = None
+    direction = None
+
+    if request.GET:
+        if 'sort' in request.GET:
+            is_sorted = True
+            sortkey = request.GET['sort']
+            sort = sortkey
+
+            if sortkey == 'category__origin':
+                sort = 'Origin'
+                if 'direction' in request.GET:
+                    direction = request.GET['direction']
+                    if direction == 'asc':
+                        direction = 'from A - Z'
+
+            if sortkey == 'price':
+                sort = 'Price'
+                if 'direction' in request.GET:
+                    direction = request.GET['direction']
+                    if direction == 'asc':
+                        direction = 'from low to high'
+                    if direction == 'desc':
+                        sortkey = f'-{sortkey}'
+                        direction = 'from high to low'
+
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                mugs = mugs.annotate(lower_name=Lower('name'))
+                sort = 'Mug'
+                if 'direction' in request.GET:
+                    direction = request.GET['direction']
+                    if direction == 'asc':
+                        direction = 'from A - Z'
+                    if direction == 'desc':
+                        sortkey = f'-{sortkey}'
+                        direction = 'from Z - A'
+
+            mugs = mugs.order_by('sortkey')
+
+    current_sorting = f'Search by: {sort} {direction}'
+   
+    context = {
+        'mugs': mugs,
+        'search': query,
+        'current_sorting': current_sorting,
+        'query': query,
+        'is_sorted': is_sorted,
+        'sortkey': sortkey,
+        'sort': sort,
+    }
+
+    return render(request, 'products/product_list.html', context)
 
