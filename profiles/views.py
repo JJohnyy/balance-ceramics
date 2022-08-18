@@ -4,8 +4,6 @@ from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
 
-from checkout.models import Order
-
 # Create your views here.
 
 def profile(request):
