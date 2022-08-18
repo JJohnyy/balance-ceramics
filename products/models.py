@@ -12,6 +12,10 @@ class MugsCategory(models.Model):
     def get_friendly_name(self):
         return self.friendly_name
 
+    class Meta:
+        """ change verbose name in Admin"""
+        verbose_name_plural = 'MugCategories'
+
 
 class Mugs(models.Model):
     category = models.ForeignKey('MugsCategory', null=True, blank=True, on_delete=models.SET_NULL)
@@ -22,3 +26,7 @@ class Mugs(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        """ change verbose name in Admin """
+        verbose_name_plural = 'Mugs'
