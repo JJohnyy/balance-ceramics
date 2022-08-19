@@ -1,1 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu&display=swap');
 
+.index-container {
+    height:auto;
+    margin-top: 150px;
+    background: url('https://res.cloudinary.com/dontkrfjd/image/upload/v1660896253/close-up-marble-textured-wall_a7hwmc.jpg11') no-repeat center center fixed;
+    background-size: cover;
+    color: #555;
+    height: calc(100vh - 164px);
+    font-family: 'Roboto', sans-serif;
+    border-color: red;
+}
+
+.heading-1 {
+    color: red !important;
+    text-align: center;
+    margin-top: 200px;
+}
+
+.button-container {
+    margin: auto !important;
+    margin-top: 200px !important;
+    width: 20%;
+}
+
+.shop-now-btn {
+    background-color: blue;
+}
