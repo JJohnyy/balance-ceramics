@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu&display=swap');
 
 .index-container {
+    width: 100%;
     height:auto;
     margin-top: 150px;
     background: url('https://res.cloudinary.com/dontkrfjd/image/upload/v1660896253/close-up-marble-textured-wall_a7hwmc.jpg11') no-repeat center center fixed;
@@ -19,9 +20,11 @@
 .button-container {
     margin: auto;
     margin-top: 200px;
-    width: 20%;
+    width: 200px;;
+    border: 1px solid red;
 }
 
-.shop-now-btn {
-    
+.shop-btn{
+    margin: auto;
+    text-decoration: dashed;
 }
