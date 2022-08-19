@@ -1,5 +1,7 @@
 {% extends "account/base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% load i18n %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
@@ -15,7 +17,7 @@
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+  <button class="signup-btn" type="submit">{% trans "Sign Up" %} &raquo;</button>
 </form>
 
 {% endblock %}

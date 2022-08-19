@@ -3,3 +3,18 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+.login, .signup {
+    width: 310px;
+    margin: auto;
+}
+
+.signup-btn {
+    width: 100%;
+    color: white;
+    background-color: #395864;  
+    border: none; 
+    border-radius: 3px;
+    padding-top: 0.35em;
+    padding-bottom: 0.35em;
+}
