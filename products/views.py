@@ -88,11 +88,11 @@ def product_detail_mugs(request, product_id):
 def add_product(request):
     """ Add a product to the list of products"""
     if not request.user.is_superuser:
-        messages.error(request, 'Sorrym you are not the owner')
+        messages.error(request, 'Sorry you are not the owner')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
-        form = forms.ProductForm(request.POST)
+        form = form.ProductForm(request.POST)
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Product added')
@@ -100,7 +100,7 @@ def add_product(request):
         else:
             messages.error(request, 'Failed to add the product')
     else:
-        form=ProductForm()
+        form = ProductForm()
 
 
 @login_required
