@@ -4,7 +4,7 @@ from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 
-from products.models import Dishes, Wines, Bundle
+from products.models import Mugs
 from profiles.models import UserProfile
 
 # Create your models here.
@@ -112,16 +112,12 @@ class OrderItem(models.Model):
     )
 
     def save(self, *args, **kwargs):
-         """
-        Override the original save method to set the orderitem total
-        and update the order total depending on if the.
-        """
         if self.mug:
             self.order_total = self.mug.price * self.quantity
             super().save(*args, **kwargs)
-
         else:
             return
+            
 
     def __str__(self):
         return f'{self.order}'

@@ -4,6 +4,8 @@ from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
 
+from checkout.models import Order
+
 # Create your views here.
 
 def profile(request):
@@ -41,3 +43,7 @@ def order_history(request, order_number):
     }
 
     return render(request, 'checkout/checkout-success.html', context)
+
+
+def contacts(request):
+    return render(request, 'profiles/contacts.html')
