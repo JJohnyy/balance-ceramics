@@ -12,7 +12,7 @@
 }
 
 .heading-1 {
-    color: red;
+    
     text-align: center;
     margin-top: 200px;
 }
@@ -21,10 +21,24 @@
     margin: auto;
     margin-top: 200px;
     width: 200px;;
-    border: 1px solid red;
+    display: flex;
+    justify-content: center;
 }
 
 .shop-btn{
-    margin: auto;
-    text-decoration: dashed;
+    font-size: larger;
+    color: white;
+    background-color: #2C3333;
+    padding: 10px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+a {
+    color: black;
+}
+
+.shop-btn:visited {
+    color: white;
+    text-decoration: none;
 }
