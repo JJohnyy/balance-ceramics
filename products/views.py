@@ -6,6 +6,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import MugsCategory, Mugs
+from .forms import ProductForm
 
 
 # Create your views here.
@@ -68,9 +69,7 @@ def product_list(request):
     #}
    
 
-    return render(request,
-     'products/product_list.html',
-     {'products': products})
+    return render(request, 'products/product_list.html', {'products': products})
 
 
 def product_detail_mugs(request, product_id):
@@ -111,13 +110,13 @@ def edit_product(request, product_id):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    product = get_object_or_404(Product, pk=product_id)
+    product = get_object_or_404(Mugs, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated product!')
-            return redirect(reverse('product_detail', args=[product.id]))
+            return redirect(reverse('product-detail', args=[product.id]))
         else:
             messages.error(request, 'Failed to update product. Please ensure the form is valid.')
     else:
@@ -140,7 +139,7 @@ def delete_product(request, product_id):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    product = get_object_or_404(Product, pk=product_id)
+    product = get_object_or_404(Mugs, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
