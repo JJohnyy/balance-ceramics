@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
-# import dj_database_url
+import dj_database_url
 
 if os.path.isfile('env.py'):
     import env
@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-qj1tcc@_x9=^2p6dy02x*p7=hfps&4brev7^jewu5f5&)woplw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['balance-ceramics.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -117,6 +117,8 @@ WSGI_APPLICATION = 'balance_ceramics.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
+DATBASE_URL = 'postgres://lmohqszbpmfpot:aedc3c15e67e05df4da2f7a27009662ec1d37b89d3fcc349468c33174eb45972@ec2-54-228-125-183.eu-west-1.compute.amazonaws.com:5432/d8550h4prlts9g'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
