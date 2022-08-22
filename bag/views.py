@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
+from products.models import Mugs
 
 # Create your views here.
 
