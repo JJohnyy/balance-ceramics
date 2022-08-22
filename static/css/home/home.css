@@ -38,7 +38,7 @@ a {
     color: black;
 }
 
-.shop-btn:visited, .shop-button:hover {
+.shop-btn:visited, .shop-btn:hover {
     color: white;
     text-decoration: none;
 }
