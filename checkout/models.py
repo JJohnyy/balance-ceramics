@@ -126,8 +126,6 @@ class OrderItem(models.Model):
     def save(self, *args, **kwargs):
         self.orderitem_total = self.mug.price * self.quantity
         super().save(*args, **kwargs)
-        
-            
 
     def __str__(self):
         return f'{self.order}'

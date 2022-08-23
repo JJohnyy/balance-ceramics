@@ -117,10 +117,8 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """ Handles successful checkouts """
-    dishes = Dishes.objects.all()
-    wines = Wines.objects.all()
-    bundles = Bundle.objects.all()
-
+    mugs = Mugs.objects.all()
+    
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
