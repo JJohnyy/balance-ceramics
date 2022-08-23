@@ -118,19 +118,19 @@ WSGI_APPLICATION = 'balance_ceramics.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#DATBASE_URL = 'postgres://lmohqszbpmfpot:aedc3c15e67e05df4da2f7a27009662ec1d37b89d3fcc349468c33174eb45972@ec2-54-228-125-183.eu-west-1.compute.amazonaws.com:5432/d8550h4prlts9g'
+DATBASE_URL = 'postgres://lmohqszbpmfpot:aedc3c15e67e05df4da2f7a27009662ec1d37b89d3fcc349468c33174eb45972@ec2-54-228-125-183.eu-west-1.compute.amazonaws.com:5432/d8550h4prlts9g'
 
-if 'DATABASE_URL' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+#if 'DATABASE_URL' in os.environ:
+#    DATABASES = {
+#        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#    }
+#else:
+#    DATABASES = {
+#        'default': {
+#            'ENGINE': 'django.db.backends.sqlite3',
+#            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
 
 
 # Password validation
