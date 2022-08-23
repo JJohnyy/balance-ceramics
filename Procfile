@@ -1,1 +1,1 @@
-web: gunicorn balance-ceramics.wsgi:application
+web: gunicorn balance_ceramics.wsgi:application
