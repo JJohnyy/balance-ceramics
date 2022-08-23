@@ -8,6 +8,8 @@ class MugsAdmin(admin.ModelAdmin):
         'name', 
         'category',
         'price',
+        'image',
+        'slug_name'
         )
 
 
