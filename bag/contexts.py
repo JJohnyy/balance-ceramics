@@ -1,6 +1,8 @@
+from decimal import Decimal
+from django.conf import settings
 from django.shortcuts import get_object_or_404
 
-from profducts.modes import Mugs
+from products.models import Mugs
 
 
 def bag_contents(request):
@@ -14,20 +16,18 @@ def bag_contents(request):
 
     mugs_slug_list = []
 
-    for mug in mugs:
-        mugs_slug_list.append(mug.slug_name)
 
-        for item_slug, quantity in bag.items():
+    for item_id, item_data in bag.items():
+        if instance(item_data,int):
 
-            if item_slug in mugs_slug_list:
-                product = get_object_or_404(Mugs, slug_name=item_slug)
-                total += quantity * product.price
-                product_count += quantity
-                bag_items.append({
-                    'item_slug': item_slug,
-                    'quantity': quantity,
-                    'product': product,
-                })
+            product = get_object_or_404(Mugs, pk=item_id)
+            total += item_data * product.price
+            product_count += item_data
+            bag_items.append({
+                'item_id': item_id,
+                'quantity': quantity,
+                'product': product,
+            })
 
     grand_total = total
 
