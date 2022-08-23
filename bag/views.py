@@ -38,7 +38,7 @@ def update_bag(request, item_id):
     """ Update the quantity of a product to the bag during a session """
 
     if request.method == 'POST':
-        quantity = int(request.POST.get('item-quantity'))
+        quantity = int(request.POST.get('quantity'))
         product_name = request.POST.get('item_name')
         bag = request.session.get('bag', {})
 
@@ -47,7 +47,7 @@ def update_bag(request, item_id):
                 bag[item_id] = quantity
                 messages.success(
                     request,
-                    f'Quantity of {product_name.title()} successfully \
+                    f'Quantity of {product_name} successfully \
                         updated to {quantity}'
                     )
         else:
@@ -60,6 +60,7 @@ def update_bag(request, item_id):
 
 def remove_from_bag(request, item_id):
     """ Removes the item from the bag """
+    product = get_object_or_404(Product, pk=item_id)
 
     bag = request.session.get('bag', {})
     bag.pop(item_id)
