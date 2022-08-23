@@ -110,13 +110,26 @@ class OrderItem(models.Model):
         null=True,
         blank=True,
     )
+    quantity = models.IntegerField(
+        null=False,
+        blank=False,
+        default=0
+        )
+    orderitem_total = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        null=False,
+        blank=False,
+        editable=False
+        )
 
     def save(self, *args, **kwargs):
         if self.mug:
             self.order_total = self.mug.price * self.quantity
             super().save(*args, **kwargs)
         else:
-            return
+            self.orderitem_total = self.bundle.price * self.quantity
+            super().save(*args, **kwargs)
             
 
     def __str__(self):
