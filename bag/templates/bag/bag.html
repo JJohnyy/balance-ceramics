@@ -19,7 +19,7 @@
 
         <div class="row">
             <div class="col">
-                {% if bag_items %}
+               <!-- {% if bag_items %} -->
                     <div class="table-responsive rounded">
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
@@ -48,7 +48,7 @@
                                         <p class="my-0">${{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+                                        <form class="form update-form" method="POST" action="{% url 'update_bag' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <div class="input-group">
@@ -98,7 +98,7 @@
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                                    <a href="{#}" class="btn btn-black rounded-0 btn-lg">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
@@ -116,7 +116,7 @@
                         </span>
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
-                {% endif %}
+             <!--   {% endif %}-->
             </div>
         </div>
     </div>

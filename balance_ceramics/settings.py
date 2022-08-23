@@ -81,6 +81,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'bag.contexts.bag_contents',
             ],
         },
     },
@@ -123,7 +124,7 @@ WSGI_APPLICATION = 'balance_ceramics.wsgi.application'
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-   }
+}
 else:
     DATABASES = {
         'default': {
