@@ -124,12 +124,9 @@ class OrderItem(models.Model):
         )
 
     def save(self, *args, **kwargs):
-        if self.mug:
-            self.order_total = self.mug.price * self.quantity
-            super().save(*args, **kwargs)
-        else:
-            self.orderitem_total = self.bundle.price * self.quantity
-            super().save(*args, **kwargs)
+        self.orderitem_total = self.mug.price * self.quantity
+        super().save(*args, **kwargs)
+        
             
 
     def __str__(self):
