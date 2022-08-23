@@ -33,8 +33,8 @@ def add_to_bag(request, item_id):
                 request,
                 f'{quantity} {product_name} mugs added to the basket'
             )
-            request.session['bag'] = bag
-            return redirect(redirect_url)
+        request.session['bag'] = bag
+        return redirect(redirect_url)
     else:
         bag[item_id] = quantity
     
