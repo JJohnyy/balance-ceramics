@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Mugs
+from .models import Mugs, MugsCategory
 from .forms import ProductForm
 
 
@@ -13,86 +13,63 @@ from .forms import ProductForm
 
 def product_list(request):
     """ A view to show all products, including sorting and search queries """
-    mugs = Mugs.objects.all()
 
-    mugs_names = []
-    is_sorted = False
-
-    for mug in mugs:
-        mugs_names.append(mug.name)
-       
+    products = Mugs.objects.all()
     query = None
+    categories = None
     sort = None
     direction = None
 
     if request.GET:
-        if 'main_seach_query' in request.GET:
-            query = request.GET['main_seach_query']
-            if not query:
-                return redirect(reverse('product_list'))
-
-        queries = Q(
-            name__icontains=query
-            ) | Q(description__icontains=query)
-        mugs = mugs.filter(queries)
-
         if 'sort' in request.GET:
-            is_sorted = True
             sortkey = request.GET['sort']
             sort = sortkey
-
-            if sortkey == 'category__origin':
-                sort = 'Origin'
-                'direction' in request.GET['direction']
-                if direction == 'asc':
-                    direction = 'from A -Z'
-
-            if sortkey == 'price':
-                sort = 'Price'
-                if 'direction' in request.GET:
-                    direction = request.GET['direction']
-                    if direction == 'asc':
-                        direction = 'from low to high'
-                    if direction == 'desc':
-                        sortkey = f'-{sortkey}'
-                        direction = 'from high to low'
-
             if sortkey == 'name':
                 sortkey = 'lower_name'
-                mugs = mugs.annotate(lower_name=Lower('name'))
-                sort = 'Mug'
-                if 'direction' in request.GET:
-                    direction = request.GET['direction']
-                    if direction == 'asc':
-                        direction = 'from A to Z'
-                    if direction == 'desc':
-                        sortkey = f'-{sortkey}'
-                        direction = 'from Z to A'
+                products = products.annotate(lower_name=Lower('name'))
+            if sortkey == 'category':
+                sortkey = 'category__name'
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
+            
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = MugsCategory.objects.filter(name__in=categories)
 
-            mugs.mugs.order_by(sortkey)
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "You didn't enter any search criteria!")
+                return redirect(reverse('products'))
+            
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            products = products.filter(queries)
 
-    current_sorting = f'Search by: {sort} {direction}'
+    current_sorting = f'{sort}_{direction}'
 
     context = {
-        'mugs': mugs,
-        'search': query,
+        'products': products,
+        'search_term': query,
+        'current_categories': categories,
         'current_sorting': current_sorting,
-        'query': query,
-        'is_sorted': is_sorted,
     }
 
     return render(request, 'products/product_list.html', context)
 
 
 def product_detail_mugs(request, product_id):
+    """ A view to show individual product details """
+
     product = get_object_or_404(Mugs, pk=product_id)
-    mugs = product.mugs.all()
 
     context = {
-        'mugs': mugs,
         'product': product,
-        }
-    
+    }
+
     return render(request, 'products/product-detail.html', context)
 
 

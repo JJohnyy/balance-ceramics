@@ -46,7 +46,3 @@ def order_history(request, order_number):
     }
 
     return render(request, 'checkout/checkout-success.html', context)
-
-
-def contacts(request):
-    return render(request, 'profiles/contacts.html')

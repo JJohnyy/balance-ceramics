@@ -7,5 +7,4 @@ urlpatterns = [
          views.order_history,
          name='order_history'
          ),
-    path('contact/', views.contacts, name='contact'),
 ]
