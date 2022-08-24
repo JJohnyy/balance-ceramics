@@ -44,7 +44,7 @@ class Order(models.Model):
         null=True,
         blank=True
         )
-    city = models.CharField(
+    town_or_city = models.CharField(
         max_length=40,
         null=False,
         blank=False

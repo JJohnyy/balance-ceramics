@@ -14,7 +14,7 @@ class OrderForm(forms.ModelForm):
             'street_address1',
             'street_address2',
             'postcode',
-            'city',
+            'town_or_city',
         )
 
     def __init__(self, *args, **kwargs):
