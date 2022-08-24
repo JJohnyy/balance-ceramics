@@ -16,23 +16,23 @@ class UserProfile(models.Model):
         null=True,
         blank=True
         )
-    default_street_address1 = models.CharField(
-        max_length=80,
+    default_postcode = models.CharField(
+        max_length=20,
         null=True,
         blank=True
         )
-    default_street_address2 = models.CharField(
-        max_length=80,
-        null=True,
-        blank=True
-        )
-    default_town_or_city = models.CharField(
+    deafault_town_or_city = models.CharField(
         max_length=40,
         null=True,
         blank=True
         )
-    default_postcode = models.CharField(
-        max_length=20,
+    deafault_street_address1 = models.CharField(
+        max_length=80,
+        null=True,
+        blank=True
+        )
+    deafault_street_address2 = models.CharField(
+        max_length=80,
         null=True,
         blank=True
         )
