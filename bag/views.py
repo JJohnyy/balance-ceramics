@@ -60,12 +60,11 @@ def update_bag(request, item_id):
 
 def remove_from_bag(request, item_id):
     """ Removes the item from the bag """
-    product = get_object_or_404(Mugs, pk=item_id)
 
     bag = request.session.get('bag', {})
     bag.pop(item_id)
     request.session['bag'] = bag
 
-    messages.success(request, f'Successfully removed {product.name} from basket')
+    messages.success(request, 'Successfully removed an item from basket')
 
     return redirect(reverse('view_bag'))
