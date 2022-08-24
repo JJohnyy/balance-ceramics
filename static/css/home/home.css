@@ -1,20 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu&display=swap');
 
 .index-container {
-    width: 100%;
     height:auto;
     margin-top: 150px;
     background: url('https://res.cloudinary.com/dontkrfjd/image/upload/v1660896253/close-up-marble-textured-wall_a7hwmc.jpg11') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
     font-family: 'Roboto', sans-serif;
     border-color: red;
 }
 
 .heading-1 {
-    
     text-align: center;
-    margin-top: 200px;
+    margin-top: 250px;
 }
 
 .button-container {
@@ -35,7 +32,11 @@
 }
 
 a {
-    color: black;
+    color: #2C3333;
+}
+
+a:hover {
+    color: #A5C9CA
 }
 
 .shop-btn:visited, .shop-btn:hover {

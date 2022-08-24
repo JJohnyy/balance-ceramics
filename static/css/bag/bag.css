@@ -1,3 +1,11 @@
 .overlay {
     margin-top: 250px;
 }
+
+a {
+    color: #2C3333;
+}
+
+a:hover {
+    color: #A5C9CA
+}
