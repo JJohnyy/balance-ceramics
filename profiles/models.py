@@ -21,17 +21,17 @@ class UserProfile(models.Model):
         null=True,
         blank=True
         )
-    deafault_town_or_city = models.CharField(
+    default_town_or_city = models.CharField(
         max_length=40,
         null=True,
         blank=True
         )
-    deafault_street_address1 = models.CharField(
+    default_street_address1 = models.CharField(
         max_length=80,
         null=True,
         blank=True
         )
-    deafault_street_address2 = models.CharField(
+    default_street_address2 = models.CharField(
         max_length=80,
         null=True,
         blank=True
