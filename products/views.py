@@ -5,23 +5,37 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import MugsCategory, Mugs
+from .models import Mugs
 from .forms import ProductForm
 
 
 # Create your views here.
 
 def product_list(request):
-    """
-    view to show all products
-    """
-    products = Mugs.objects.all()
+    """ A view to show all products, including sorting and search queries """
+    mugs = Mugs.objects.all()
 
-    sort = None
+    mugs_names = []
+    is_sorted = False
+
+    for mug in mugs:
+        mugs_names.append(mug.name)
+       
     query = None
+    sort = None
     direction = None
 
     if request.GET:
+        if 'main_seach_query' in request.GET:
+            query = request.GET['main_seach_query']
+            if not query:
+                return redirect(reverse('product_list'))
+
+        queries = Q(
+            name__icontains=query
+            ) | Q(description__icontains=query)
+        mugs = mugs.filter(queries)
+
         if 'sort' in request.GET:
             is_sorted = True
             sortkey = request.GET['sort']
@@ -29,10 +43,9 @@ def product_list(request):
 
             if sortkey == 'category__origin':
                 sort = 'Origin'
-                if 'direction' in request.GET:
-                    direction = request.GET['direction']
-                    if direction == 'asc':
-                        direction = 'from A - Z'
+                'direction' in request.GET['direction']
+                if direction == 'asc':
+                    direction = 'from A -Z'
 
             if sortkey == 'price':
                 sort = 'Price'
@@ -51,36 +64,35 @@ def product_list(request):
                 if 'direction' in request.GET:
                     direction = request.GET['direction']
                     if direction == 'asc':
-                        direction = 'from A - Z'
+                        direction = 'from A to Z'
                     if direction == 'desc':
                         sortkey = f'-{sortkey}'
-                        direction = 'from Z - A'
+                        direction = 'from Z to A'
 
-            mugs = mugs.order_by('sortkey')
+            mugs.mugs.order_by(sortkey)
 
     current_sorting = f'Search by: {sort} {direction}'
 
-    #context = {
-    #    'mugs': mugs,
-     #   'current_sorting': current_sorting,
-    #    'sortkey': sortkey,
-    #    'query': query,
-    #    'is_sorted': is_sorted,
-    #}
-   
+    context = {
+        'mugs': mugs,
+        'search': query,
+        'current_sorting': current_sorting,
+        'query': query,
+        'is_sorted': is_sorted,
+    }
 
-    return render(request, 'products/product_list.html', {'products': products})
+    return render(request, 'products/product_list.html', context)
 
 
 def product_detail_mugs(request, product_id):
-    """Detailed view of a product"""
-    mugs = Mugs.objects.all()
     product = get_object_or_404(Mugs, pk=product_id)
+    mugs = product.mugs.all()
 
     context = {
-        'product': product,
         'mugs': mugs,
-    }
+        'product': product,
+        }
+    
     return render(request, 'products/product-detail.html', context)
 
 
