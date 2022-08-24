@@ -162,7 +162,7 @@ def checkout_success(request, order_number):
 
     context = {
         'order': order,
-        'mugs':mugs,
+        'mugs': mugs,
     }
 
     return render(request, 'checkout/checkout-success.html', context)

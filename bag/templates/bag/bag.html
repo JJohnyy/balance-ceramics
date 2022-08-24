@@ -19,7 +19,7 @@
 
         <div class="row">
             <div class="col">
-               <!-- {% if bag_items %} -->
+               {% if bag_items %}
                     <div class="table-responsive rounded">
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
@@ -76,7 +76,7 @@
                                             </div>
                                         </form>
                                         <a class="update-link text-info"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0"></p>
@@ -115,8 +115,7 @@
                         </span>
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
-             <!--   {% endif %}-->
-            </div>
+             {% endif %}
         </div>
     </div>
 {% endblock %}

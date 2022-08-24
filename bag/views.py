@@ -60,12 +60,15 @@ def update_bag(request, item_id):
 
 def remove_from_bag(request, item_id):
     """ Removes the item from the bag """
-    product = get_object_or_404(Product, pk=item_id)
+    try:
+        product = get_object_or_404(Mugs, pk=item_id)
 
-    bag = request.session.get('bag', {})
-    bag.pop(item_id)
-    request.session['bag'] = bag
+        bag = request.session.get('bag', {})
+        bag.pop(item_id)
+        request.session['bag'] = bag
 
-    messages.success(request, 'Successfully removed item from your basket')
+        messages.success(request, f'Successfully removed {product.name} from basket')
+    except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
 
     return redirect(reverse('view_bag'))
