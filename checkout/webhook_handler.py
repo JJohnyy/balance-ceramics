@@ -60,7 +60,11 @@ class StripeWebhookHandler:
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
-                profile.default_phone_number = billing_details.phone
+                profile.default_phone_number = shipping_details.phone
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
                 profile.save()
 
         order_exists = False
@@ -68,9 +72,13 @@ class StripeWebhookHandler:
         while attempt <= 5:
             try:
                 order = Order.objects.get(
-                    full_name__iexact=billing_details.name,
+                    full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
-                    phone_number__iexact=billing_details.phone,
+                    phone_number__iexact=shipping_details.phone,
+                    postcode__iexact=shipping_details.address.postal_code,
+                    town_or_city__iexact=shipping_details.address.city,
+                    street_address1__iexact=shipping_details.address.line1,
+                    street_address2__iexact=shipping_details.address.line2,
                     grand_total=grand_total,
                     original_bag=bag,
                     stripe_pid=pid,
@@ -83,58 +91,43 @@ class StripeWebhookHandler:
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | \
-                    SUCCESS: Verified order already in database',
+                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)
         else:
             order = None
             try:
                 order = Order.objects.create(
-                    full_name=billing_details.name,
+                    full_name=shipping_details.name,
                     user_profile=profile,
                     email=billing_details.email,
-                    phone_number=billing_details.phone,
+                    phone_number=shipping_details.phone,
+                    country=shipping_details.address.country,
+                    postcode=shipping_details.address.postal_code,
+                    town_or_city=shipping_details.address.city,
+                    street_address1=shipping_details.address.line1,
+                    street_address2=shipping_details.address.line2,
+                    county=shipping_details.address.state,
                     original_bag=bag,
                     stripe_pid=pid,
                 )
-
-                mugs = Mugs.objects.all()
-                
-
-                mug_slug_list = []
-                
-
-                for mug in mugs:
-                    mug_slug_list.append(mug.slug_name)
-
-                for item_slug, item_data in json.loads(bag).items():
-                    if item_slug in dish_slug_list:
-                        dish = Dishes.objects.get(slug_name=item_slug)
-                        if isinstance(item_data, int):
-                            order_item = OrderItem(
+                for item_id, item_data in json.loads(bag).items():
+                    product = Product.objects.get(id=item_id)
+                    if isinstance(item_data, int):
+                        order_line_item = OrderItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                        )
+                        order_line_item.save()
+                    else:
+                        for size, quantity in item_data['items_by_size'].items():
+                            order_line_item = OrderItem(
                                 order=order,
-                                dish=dish,
-                                quantity=item_data,
+                                product=product,
+                                quantity=quantity,
+                                product_size=size,
                             )
-                            order_item.save()
-                    if item_slug in wine_slug_list:
-                        wine = Wines.objects.get(slug_name=item_slug)
-                        if isinstance(item_data, int):
-                            order_item = OrderItem(
-                                order=order,
-                                wine=wine,
-                                quantity=item_data,
-                            )
-                            order_item.save()
-                    if item_slug in bundle_slug_list:
-                        bundle = Bundles.objects.get(slug_name=item_slug)
-                        if isinstance(item_data, int):
-                            order_item = OrderItem(
-                                order=order,
-                                bundle=bundle,
-                                quantity=item_data,
-                            )
-                            order_item.save()
+                            order_line_item.save()
             except Exception as e:
                 if order:
                     order.delete()
@@ -143,13 +136,12 @@ class StripeWebhookHandler:
                     status=500)
         self._send_confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | \
-                SUCCESS: Created order in webhook',
+            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
 
-    def handle_payment_intent_failed(self, event):
+    def handle_payment_intent_payment_failed(self, event):
         """
-        Handle the payment intent failed webhook from Stripe
+        Handle the payment_intent.payment_failed webhook from Stripe
         """
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
