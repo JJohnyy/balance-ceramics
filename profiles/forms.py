@@ -7,6 +7,7 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         """ UserProfile form """
         model = UserProfile
+        exclude = ('user',)
         fields = (
             'default_phone_number',
             'default_postcode',
