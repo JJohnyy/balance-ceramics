@@ -6,7 +6,8 @@ a {
     color: #2C3333;
 }
 
-a:hover {
+a:hover,
+small:hover {
     color: #A5C9CA;
     cursor: pointer;
 }
