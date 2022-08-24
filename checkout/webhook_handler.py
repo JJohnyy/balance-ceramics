@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 
-from .models import Order, OrderLineItem
-from products.models import Product
+from .models import Order, OrderItem
+from products.models import Mugs
 from profiles.models import UserProfile
 
 import json
@@ -94,9 +94,9 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(bag).items():
-                    product = Product.objects.get(id=item_id)
+                    product = Mugs.objects.get(id=item_id)
                     if isinstance(item_data, int):
-                        order_line_item = OrderLineItem(
+                        order_line_item = OrderItem(
                             order=order,
                             product=product,
                             quantity=item_data,
@@ -104,7 +104,7 @@ class StripeWH_Handler:
                         order_line_item.save()
                     else:
                         for size, quantity in item_data['items_by_size'].items():
-                            order_line_item = OrderLineItem(
+                            order_line_item =OrderItem(
                                 order=order,
                                 product=product,
                                 quantity=quantity,
