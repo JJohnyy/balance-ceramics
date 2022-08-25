@@ -2,20 +2,41 @@
 
 {% load crispy_forms_tags %}
 
-<div class="row">
-    <div class="col">
-    <h3 class="h6">Signup for our newsletter</h3>
-    <form action="POST">
-        {% csrf_token %}
-        {{ form | crispy }}
-            <span>
-                <button type="submit">Submit</button>
-           </span>
-    </form>
-    </div>
-        <span>
-            <a href="{% url 'news_unsubscribe' %}"> unsubscribe</a>
-        </span>
-    </div>
-</div>
 
+{% block extra_css %}
+      <link rel="stylesheet" href="{% static 'css/newsletter/newsletter.css' %}">
+    {% endblock %}
+
+
+{% for message in messages %}
+<div class=".alert.alert-success">
+{{meesage }}
+</div>
+<div class=".alert.alert-danger">
+{{ message }}
+</div>
+{% endfor %}
+
+
+<div class="news-container">
+    <div class="news-wrapper">
+        <h3 class="h6">Signup for our newsletter</h3>
+        <form class="news-form" method="POST">
+            {% csrf_token %}
+            {{form | crispy}}
+            <button class="news-btn" type="submit">Submit</button>
+        </form>
+        <span>
+            <a href="{#}"> unsubscribe</a>
+        </span>
+        
+    </div>
+    <span>
+        <a class="back-btn" href="{% url 'home' %}">back</a>
+    </span>
+ </div>
+  
+ 
+  
+
+   
