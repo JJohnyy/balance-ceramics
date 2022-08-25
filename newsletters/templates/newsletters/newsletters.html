@@ -1,7 +1,11 @@
 
+
+
 {% load static %}
 
-{% load crispy_forms_tags %}
+{% block corecss %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% endblock %}
 
 
 {% block extra_css %}
@@ -9,31 +13,17 @@
     {% endblock %}
 
 
-<div class="news-c">
-    {% for message in messages %}
-<div class="alert alert-success">
-{{meesage }}
-</div>
-<div class="alert alert-danger">
-{{ message }}
-</div>
-{% endfor %}
-    <div class="news-wrapper">
+
+
+   <div class="ews-wrapper">
         <h3 class="h6">Signup for our newsletter</h3>
-        <form class="news-form" method="POST">
+        <form class="ews-form" method="POST">
             {% csrf_token %}
-            {{form}}
-            <button class="news-btn" type="submit">Submit</button>
+            {{form.as_p}}
+            <button class="ews-btn" type="submit">Submit</button>
         </form>
-        <span>
-            <a href="{#}"> unsubscribe</a>
-        </span>
-        
     </div>
-    <span class="back-btn">
-        <a class="back-btn" href="{% url 'home' %}">back</a>
-    </span>
- </div>
+
 
   
  

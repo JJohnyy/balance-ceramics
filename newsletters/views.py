@@ -12,10 +12,10 @@ def newsletter_signup(request):
         if form.is_valid():
             instance = form.save(commit=False)
             if NewsletterUsers.objects.filter(email=instance.email).exists():
-                messages.error(request, 'email already exists')
+                pass
             else:
                 form.save()
-                messages.success(request, 'Subscription Successful')
+                
                 return redirect('newsletter_signup')
     else:
         form = NewsletterUserForm()
