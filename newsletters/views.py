@@ -9,7 +9,7 @@ def newsletter_signup(request):
     
     if form.is_valid():
         instance = form.save(commit=False)
-        if NewsletterUsers.objects.filter(user=instance.email).exists():
+        if NewsletterUsers.objects.filter(email=instance.email).exists():
             print('hi')
         else:
             instance.save()

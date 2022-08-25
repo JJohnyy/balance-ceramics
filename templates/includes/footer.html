@@ -1,3 +1,7 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+
 <footer class="bg-light text-center text-lg-start fixed-bottom">
     <!-- Grid container -->
     <div class="container p-4 pb-0">
@@ -6,31 +10,17 @@
             <div class="row">
                 <!--Grid column-->
                 <div class="col-auto mb-4 mb-md-0">
-                    <p class="pt-2">
-                        <strong>Sign up for our newsletter</strong>
-                    </p>
+                  
                 </div>
                 <!--Grid column-->
 
                 <!--Grid column-->
-                <div class="col-md-5 col-12">
-                    <!-- Email input -->
-                    <div class="form-outline mb-4">
-                        <form method="POST" action="" style="text-align: center;">
-                            {% csrf_token %}
-                            <input type="email" id="form5Example25" class="form-control" />
-                            <label class="form-label" for="form5Example25">Email address</label>
-                        </form>
-                    </div>
-                </div>
+                {% include 'newsletters/newsletters.html' %}
                 <!--Grid column-->
 
                 <!--Grid column-->
                 <div class="col-auto mb-4 mb-md-0">
                     <!-- Submit button -->
-                    <button type="submit" class="signup-btn">
-                        Subscribe
-                    </button>
                 </div>
                 <!--Grid column-->
             </div>
