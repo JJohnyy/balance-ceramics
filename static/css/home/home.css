@@ -30,6 +30,10 @@
     text-decoration: none;
 }
 
+.shop-btn:hover {
+    background-color: #395B64;
+}
+
 a {
     color: #2C3333;
 }
