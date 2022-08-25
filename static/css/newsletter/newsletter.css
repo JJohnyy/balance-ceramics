@@ -1,15 +1,17 @@
-.news-container {
-    margin-top: 30%;
-    width: 100%;
+.news-c {
+    margin: 200px auto;
+    width: 80%;
     height:auto;
     border: solid 1px red;
 }
 
 
 .news-wrapper {
-    width: 320px;
-    margin: auto;
+    min-width: 320px;
+    width: 40%;
     border: solid 1px red;
+    margin: auto;
+    height: 185px;
 }
 
 input {
@@ -39,6 +41,5 @@ input {
 }
 
 .back-btn {
-    text-align: end;
+    text-align: center;
 }
-

@@ -1,3 +1,4 @@
+
 {% load static %}
 
 {% load crispy_forms_tags %}
@@ -8,22 +9,20 @@
     {% endblock %}
 
 
-{% for message in messages %}
-<div class=".alert.alert-success">
+<div class="news-c">
+    {% for message in messages %}
+<div class="alert alert-success">
 {{meesage }}
 </div>
-<div class=".alert.alert-danger">
+<div class="alert alert-danger">
 {{ message }}
 </div>
 {% endfor %}
-
-
-<div class="news-c">
     <div class="news-wrapper">
         <h3 class="h6">Signup for our newsletter</h3>
         <form class="news-form" method="POST">
             {% csrf_token %}
-            {{form | crispy}}
+            {{form}}
             <button class="news-btn" type="submit">Submit</button>
         </form>
         <span>
@@ -35,6 +34,7 @@
         <a class="back-btn" href="{% url 'home' %}">back</a>
     </span>
  </div>
+
   
  
   

@@ -16,7 +16,7 @@ def newsletter_signup(request):
             else:
                 form.save()
                 messages.success(request, 'Subscription Successful')
-                return redirect('home')
+                return redirect('newsletter_signup')
     else:
         form = NewsletterUserForm()
     context = {
