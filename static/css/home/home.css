@@ -30,19 +30,20 @@
     text-decoration: none;
 }
 
-.shop-btn:hover {
-    background-color: #395B64;
-}
-
 a {
     color: #2C3333;
 }
 
 a:hover {
-    color: #A5C9CA
+    color: #395B64;
 }
 
-.shop-btn:visited, .shop-btn:hover {
+.shop-btn:visited {
     color: white;
+    text-decoration: none;
+}
+
+.shop-btn:hover {
+    background-color: #395B64;
     text-decoration: none;
 }

@@ -13,6 +13,14 @@
     text-align: center;
 }
 
+a {
+    color: #2C3333;
+}
+
+a:hover {
+    color: #395B64;
+}
+
 .signout-btn {
     width: 100%;
     color: #2c3333;
