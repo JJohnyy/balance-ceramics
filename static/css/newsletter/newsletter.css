@@ -19,7 +19,7 @@
     height: 300px;
 }
 
-input {
+nput {
     width: 100%;
     border-radius: 3px;
     padding: 0.35em;
@@ -49,6 +49,3 @@ input {
     text-align: center;
 }
 
-div {
-    border: solid 1px red;
-}
