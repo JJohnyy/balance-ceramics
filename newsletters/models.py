@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 
 class NewsletterUsers(models.Model):
+    is_subscribed = models.BooleanField(default=False)
     email = models.EmailField(
         max_length=254,
         null=False,
