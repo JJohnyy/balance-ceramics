@@ -3,10 +3,9 @@
 .index-container {
     height:auto;
     margin-top: 150px;
-    background: url('https://res.cloudinary.com/dontkrfjd/image/upload/v1660896253/close-up-marble-textured-wall_a7hwmc.jpg11') no-repeat center center fixed;
+    background: url('') no-repeat center center fixed;
     background-size: cover;
     font-family: 'Roboto', sans-serif;
-    border-color: red;
 }
 
 .heading-1 {
