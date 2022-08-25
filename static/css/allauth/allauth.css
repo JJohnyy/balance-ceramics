@@ -21,6 +21,10 @@ a:hover {
     color: #395B64;
 }
 
+a:visited {
+    color: #2C3333;
+}
+
 .signout-btn {
     width: 100%;
     color: #2c3333;
