@@ -1,16 +1,15 @@
 from django import forms
-
-from .models import NewsletterUsers
+from .models import NewsletterUsers, MailMessage
 
 
 class NewsletterUserForm(forms.ModelForm):
-    helper = FormHelper()
-    helper.form_show_labels = False
-    
     class Meta:
         model = NewsletterUsers
         fields = ['email']
+    
 
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        return email
+class MailMessageForm(forms.ModelForm):
+    class Meta:
+        model = MailMessage
+        fields = ('__all__')
+

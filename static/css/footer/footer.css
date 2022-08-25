@@ -1,0 +1,27 @@
+
+
+.sub-btn,
+.unsub-btn  {
+    color: white !important;
+    padding: 0.35em;
+    background-color: #2C3333;
+    border-radius: 3px;
+}
+
+.sub-btn:hover,
+.unsub-btn:hover {
+    color: white;
+    padding: 0.35em;
+    background-color: #395B64;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.sub-btn:active,
+.unsub-btn:active {
+    text-decoration: none;
+}
+
+

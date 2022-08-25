@@ -1,0 +1,44 @@
+.news-container {
+    margin-top: 30%;
+    width: 100%;
+    height:auto;
+    border: solid 1px red;
+}
+
+
+.news-wrapper {
+    width: 320px;
+    margin: auto;
+    border: solid 1px red;
+}
+
+input {
+    width: 100%;
+    border-radius: 3px;
+    padding: 0.35em;
+}
+
+.news-btn {
+    width: 100%;
+    color: white !important;
+    padding: 0.35em;
+    background-color: #2C3333;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+
+
+.news-btn:hover {
+    color: white;
+    padding: 0.35em;
+    background-color: #395B64;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.back-btn {
+    text-align: end;
+}
+

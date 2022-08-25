@@ -1,12 +1,19 @@
-
-<h3>Unsuibscipe from our newsletter</h3>
-<form action="POST">
-    {% csrf_token %}
-    {{ form|crispy }}
-     <div>
-        <span>
-            <button type="submit">Submit</button>
-        </span>
-    </div>
-</form>
+{% for message in messages %}
+<div class=".alert.alert-success">
+{{meesage }}
 </div>
+<div class=".alert.alert-danger">
+{{ message }}
+</div>
+{% endfor %}
+<div class="container-fluid d-flex justify-content-center height: 100px;">
+    <h3 class="h6">Signup for our newsletter</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<span>
+    <a href="{#}"> unsubscribe</a>
+</span>
