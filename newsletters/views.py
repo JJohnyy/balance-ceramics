@@ -66,6 +66,10 @@ def newsletter_unsubscribe(request):
     return render(request, 'newsletters/newsletters_unsubscribe.html', context)
 
 
+def control_newsletter(request):
+    return render(request, 'control_panel/control_newsletter.html')
+
+
 
 def contact_view(request):
     return render(request, 'newsletters/contacts.html')
