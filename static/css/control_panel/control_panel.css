@@ -1,0 +1,41 @@
+.overlay {
+    margin-top: 250px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.dasboard-wrapper {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.form-control {
+    border-color: black !important;
+    background-image: none !important;
+}
+
+.invalid-feedback {
+    display: none !important;
+}
+
+.asteriskField {
+    display: none !important;
+}
+
+label {
+    text-align: left;
+}
+
+.control-btn {
+    width: 100%;
+    background-color: #2C3333;
+    color: white;
+    border: none;
+    padding: 0.35em 0em;
+}

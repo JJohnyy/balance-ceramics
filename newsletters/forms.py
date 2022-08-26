@@ -4,6 +4,9 @@ from .models import NewsletterUsers, MailMessage, Newsletter
 
 
 class NewsletterUserForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].required = True
     class Meta:
         model = NewsletterUsers
         fields = ['email']

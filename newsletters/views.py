@@ -71,12 +71,12 @@ def control_newsletter(request):
     if form.is_valid():
         instance = form.save()
         newsletter = Newsletter.objects.get(id=instance.id)
-        if newsletter.status == 'Publish':
+        if newsletter.status == 'Published':
             subject = newsletter.subject
             body = newsletter.body
             from_email = settings.EMAIL_BACKEND
             for email in newsletter.email.all():
-                send_mail(subject=subject, from_email=from_email,recipient_list=[email], message=body, fail_silently=True)
+                send_mail(subject=subject, from_email=from_email, recipient_list=[email], message=body, fail_silently=True)
                 
     context = {
         'form': form,
