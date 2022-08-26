@@ -2,8 +2,9 @@
 
 html, body {
     font-family: 'Roboto', sans-serif;
-    height: 50vh;
+    height: 100vh;
 }
+
 .heading-1 {
     text-align: center;
     margin-top: 350px;
