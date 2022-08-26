@@ -7,12 +7,15 @@ h1 {
 }
 
 .dasboard-wrapper {
-    width: 100%;
+    width: 80%;
     margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+}
+
+.n-wrapper {
+    width: 100%;
 }
  
 .form-control {
@@ -36,6 +39,46 @@ label {
     width: 100%;
     background-color: #2C3333;
     color: white;
+    border-radius: 3px;
     border: none;
     padding: 0.35em 0em;
 }
+
+.control-btn:hover {
+    color: white;
+    padding: 0.35em;
+    background-color: #395B64;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-wrapper {
+    margin-top: 10px;
+}
+
+.back-btn {
+    background-color: #A5C9CA;
+    color: #2C3333;
+    padding: 0.35em;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 100px;
+}
+
+.back-btn:hover,
+.back-btn:active {
+    text-decoration: none;
+}
+
+a {
+    color: #2C3333;
+}
+
+a:visited { 
+    color: #2C3333
+}
+a:hover {
+    color: #A5C9CA
+}
+
