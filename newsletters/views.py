@@ -1,7 +1,12 @@
+from django.conf import settings
 from django.shortcuts import render, redirect
-from .models import NewsletterUsers, MailMessage
-from .forms import NewsletterUserForm
 from django.contrib import messages
+from .models import NewsletterUsers
+from .forms import NewsletterUserForm
+from django.core.mail import send_mail, EmailMultiAlternatives
+from django.template.loader import get_template
+
+
 # Create your views here.
 
 
@@ -12,11 +17,22 @@ def newsletter_signup(request):
         if form.is_valid():
             instance = form.save(commit=False)
             if NewsletterUsers.objects.filter(email=instance.email).exists():
-                pass
+                messages.error(request, 'email alredy in our database')
             else:
                 form.save()
+                messages.error(request, 'email added successfully')
+                subject = "Thank you for joining our newsletters"
+                from_email = settings.EMAIL_BACKEND
+                to_email = [instance.email]
+                with open(str(settings.BASE_DIR) + "/newsletters/templates/newsletters/emails/sign_up_email.txt") as f:
+                    signup_message = f.read()
+                message = EmailMultiAlternatives(subject=subject, body=signup_message, from_email=from_email, to=to_email)
+                html_template = get_template('newsletters/sign_up_email.html').render()
+                message.attach_alternative(html_template, 'text/html')
+                message.send()
                 
-                return redirect('newsletter_signup')
+
+                return redirect('home')
     else:
         form = NewsletterUserForm()
     context = {
@@ -26,7 +42,27 @@ def newsletter_signup(request):
 
 
 def newsletter_unsubscribe(request):
-    return render(request, 'newsletters/newsletters_unsubscribe.html'),
-
+    form = NewsletterUserForm(request.POST)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        if NewsletterUsers.objects.filter(email=instance.email).exists():
+            NewsletterUsers.objects.filter(email=instance.email).delete()
+            messages.success(request, 'email successfully deleted')
+            subject = "You have been unsubscribed"
+            from_email = settings.EMAIL_BACKEND
+            to_email = [instance.email]
+            with open(str(settings.BASE_DIR) + "/newsletters/templates/newsletters/emails/unsubscribe.txt") as f:
+                    signup_message = f.read()
+            message = EmailMultiAlternatives(subject=subject, body=signup_message, from_email=from_email, to=to_email)
+            html_template = get_template('newsletters/unsubscribe.html').render()
+            message.attach_alternative(html_template, 'text/html')
+            message.send()
+            return redirect('home')
+        else:
+            messages.error(request, 'your email is not in our databse') 
+    context = {
+        'form': form,
+    }
+    return render(request, 'newsletters/newsletters_unsubscribe.html', context)
 
 
