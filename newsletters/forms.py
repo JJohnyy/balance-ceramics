@@ -1,5 +1,6 @@
 from django import forms
-from .models import NewsletterUsers, MailMessage
+from .models import NewsletterUsers, MailMessage, Newsletter
+
 
 
 class NewsletterUserForm(forms.ModelForm):
@@ -12,4 +13,12 @@ class MailMessageForm(forms.ModelForm):
     class Meta:
         model = MailMessage
         fields = ('__all__')
+
+
+class NewsletterCreationForm(forms.ModelForm):
+    class Meta:
+        model = Newsletter
+        fields = ['subject', 'body', 'email', 'status']
+
+
 

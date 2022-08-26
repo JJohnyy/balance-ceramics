@@ -1,8 +1,8 @@
 from django.conf import settings
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import NewsletterUsers
-from .forms import NewsletterUserForm
+from .models import NewsletterUsers, Newsletter
+from .forms import NewsletterUserForm, NewsletterCreationForm
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import get_template
 
@@ -67,7 +67,22 @@ def newsletter_unsubscribe(request):
 
 
 def control_newsletter(request):
-    return render(request, 'control_panel/control_newsletter.html')
+    form = NewsletterCreationForm(request.POST)
+    if form.is_valid():
+        instance = form.save()
+        newsletter = Newsletter.objects.get(id=instance.id)
+        if newsletter.status == 'Publish':
+            subject = newsletter.subject
+            body = newsletter.body
+            from_email = settings.EMAIL_BACKEND
+            for email in newsletter.email.all():
+                send_mail(subject=subject, from_email=from_email,recipient_list=[email], message=body, fail_silently=True)
+                
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'control_panel/control_newsletter.html', context)
 
 
 

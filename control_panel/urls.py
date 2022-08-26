@@ -1,6 +1,7 @@
-from django.urls import path
-from newsletters.views import control_newsletter
+from django.urls import path, include
+from . import views
+
 
 urlpatterns = [
-    path('newsletter/', views.control_newsletter, name='control_newsletter'),
+    path('', include('newsletters.urls')),
 ]
