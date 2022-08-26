@@ -5,7 +5,7 @@
 {% load crispy_forms_tags %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/control_panel/control_panel.css' %}">
+<link rel="stylesheet" href="{% static 'css/control_panel/control_panel.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -14,11 +14,19 @@
 
 <h1>email dashboard</h1>
 <div class="dasboard-wrapper">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button class="control-btn" type="submit">submit</button>
-    </form>
+    <div class="n-wrapper">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="control-btn" type="submit">submit</button>
+        </form>
+        <div class="btn-wrapper">
+            <a class="back-btn" href="{% url 'home' %}">back</a>
+        </div>
+    </div>
 </div>
 
+
 {% endblock %}
+
+/workspace/balance-ceramics/control_panel/templates/control_panel/control_newsletter.html
