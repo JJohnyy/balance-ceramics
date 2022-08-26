@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu&display=swap');
 
+html, body {
+    font-family: 'Roboto', sans-serif;
+    height: 50vh;
+}
+
+
 .overlay {
     margin-top: 250px;
 }
