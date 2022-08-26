@@ -15,8 +15,6 @@
     max-width: 400px;
     margin: auto;
     height: 300px;
-    box-shadow: 2px -2px 22px 3px rgba(204,202,204,0.4);
-    padding: 0.35em;
 }
 
 input {
@@ -57,5 +55,16 @@ input {
 .back-btn:hover,
 .back-btn:active {
     text-decoration: none;
+}
+
+a {
+    color: #2C3333;
+}
+
+a:visited { 
+    color: #2C3333
+}
+a:hover {
+    color: #A5C9CA
 }
 
