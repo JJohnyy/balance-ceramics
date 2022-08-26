@@ -8,15 +8,15 @@
     margin: 100px auto;
     width: 80%;
     height:100vh;
-    border: solid 1px red;
 }
 
 
 .news-wrapper {
     max-width: 400px;
-    border: solid 1px red;
     margin: auto;
     height: 300px;
+    box-shadow: 2px -2px 22px 3px rgba(204,202,204,0.4);
+    padding: 0.35em;
 }
 
 input {
@@ -47,5 +47,15 @@ input {
 
 .back-btn {
     text-align: center;
+    background-color: #A5C9CA;
+    color: #2C3333;
+    padding: 0.35em;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.back-btn:hover,
+.back-btn:active {
+    text-decoration: none;
 }
 

@@ -6,6 +6,11 @@
 
 {% block corecss %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+{% endblock %}
+
+{% block corejs %}
+<script src="https://kit.fontawesome.com/9a2761774c.js" crossorigin="anonymous"></script>
 {% endblock %}
 
 
@@ -16,7 +21,7 @@
 
 
 
-<div>
+<div class="news-c">
     <div class="news-wrapper">
         <h3 class="h6">Signup for our newsletter</h3>
         <form class="news-form" method="POST">
@@ -24,7 +29,9 @@
             {{form.as_p}}
             <button class="news-btn" type="submit">Submit</button>
         </form>
+        <a href="{% url 'home' %}" class="back-btn">back</a>
     </div>
+    
 </div>
 
 
