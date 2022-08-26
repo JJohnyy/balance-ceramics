@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import NewsletterUsers, MailMessage
+from .models import NewsletterUsers, MailMessage, Newsletter
 
 
 # Register your models here.
@@ -13,5 +13,6 @@ class MailMessageAdmin(admin.ModelAdmin):
 
 admin.site.register(NewsletterUsers, NewsletterAdmin)
 admin.site.register(MailMessage, MailMessageAdmin)
+admin.site.register(Newsletter)
 
 
