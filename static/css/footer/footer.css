@@ -1,5 +1,10 @@
 
 
+.footer-wrapper {
+    margin-bottom: 0;
+}
+
+
 .sub-btn,
 .unsub-btn  {
     color: white !important;
@@ -23,5 +28,8 @@
 .unsub-btn:active {
     text-decoration: none;
 }
+
+
+
 
 
