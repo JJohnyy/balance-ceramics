@@ -26,8 +26,9 @@
         <thead>
             <th>Subject</th>
             <th>Status</th>
+            <th>Created</th>
             <th>Updated</th>
-            <th>Edited</th>
+            <th>Edit</th>
             <th>Delete</th>
         </thead>
         <tbody>
@@ -37,8 +38,8 @@
                 <td> {{ item.status }} </td>
                 <td> {{ item.created }} </td>
                 <td> {{ item.updated }} </td>
-                <td><a href="{% url 'control_newsletter_edit' %}">edit</a></td>
-                <td><a href="#">delete</a></td>
+                <td><a class="text-primary" href="{% url 'control_newsletter_edit' item.pk %}">edit</a></td>
+                <td><a href="% url 'control_newsletter_delete' item.pk %}" class="text-danger">delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
@@ -47,6 +48,9 @@
 {% include 'control_panel/pagination.html' %}
 <div>
     <a href="{% url 'control_newsletter' %}" type="button">new newsletter</a>
+</div>
+<div class="btn-wrapper">
+    <a class="back-btn" href="{% url 'home' %}">back to shop</a>
 </div>
 
 

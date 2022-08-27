@@ -144,7 +144,26 @@ def control_newsletter_edit(request, pk):
         'newsletter': newsletter,
     }
 
-    return redirect(request, 'control_newsletter_edit', context)
+    return render(request, 'control_panel/control_newsletter_edit.html', context)
+
+
+def control_newsletter_delete(request, pk):
+    newsletter = get_object_or_404(Newsletter, pk=pk)
+    if request.method == 'POST':
+        form = NewsletterCreationForm(request.POST, instance=newsletter)
+        if form.is_valid():
+            newsletter = form.delete()
+            if newsletter.status == 'Published':
+                messages.success(request, 'email deleted')
+    else:
+        form = NewsletterCreationForm(instance=newsletter)
+
+    context = {
+        'form': form,
+        'newsletter': newsletter,
+    }
+
+    return render(request, 'control_panel/control_newsletter_delete.html', context)
 
 
 
