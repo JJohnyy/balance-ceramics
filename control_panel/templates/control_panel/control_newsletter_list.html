@@ -15,14 +15,13 @@
 {% endblock %}
 
 
-{% block content %}
-
-<div class="overlay"></div>
-
-<h1>email dashboard</h1>
+{% block control-content %}
 
 <div class="table-responsive table-hover">
     <table class="table t-wrapper">
+        <div class="">
+            <a class="sub-btn " href="{% url 'control_newsletter' %}" type="button">new newsletter</a>
+        </div>
         <thead>
             <th>Subject</th>
             <th>Status</th>
@@ -39,16 +38,13 @@
                 <td> {{ item.created }} </td>
                 <td> {{ item.updated }} </td>
                 <td><a class="text-primary" href="{% url 'control_newsletter_edit' item.pk %}">edit</a></td>
-                <td><a href="% url 'control_newsletter_delete' item.pk %}" class="text-danger">delete</a></td>
+                <td><a href="{% url 'control_newsletter_delete' item.pk %}" class="text-danger">delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
 {% include 'control_panel/pagination.html' %}
-<div>
-    <a href="{% url 'control_newsletter' %}" type="button">new newsletter</a>
-</div>
 <div class="btn-wrapper">
     <a class="back-btn" href="{% url 'home' %}">back to shop</a>
 </div>
