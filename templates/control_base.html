@@ -7,26 +7,21 @@
 {% endblock %}
 
 
+{% block content %}
+
 <div class="overlay"></div>
 
+<h1>email dashboard</h1>
+<div class="navbar-wrapper">
+    <nav>
+        <ul>
+            <li>new letter</li>
+            <li>detail</li>
+            <li>edit</li>
+        </ul>
+    </nav>
+</div>
+{%block control-content %}
+{% endblock %}
 
-<div class="navbar-wrapper">
-    <nav>
-        <ul>
-            <li>new letter</li>
-            <li>detail</li>
-            <li>edit</li>
-        </ul>
-    </nav>
-</div>
-{% block content %}
-<div class="navbar-wrapper">
-    <nav>
-        <ul>
-            <li>new letter</li>
-            <li>detail</li>
-            <li>edit</li>
-        </ul>
-    </nav>
-</div>
 {% endblock %}

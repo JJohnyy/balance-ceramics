@@ -152,9 +152,9 @@ def control_newsletter_delete(request, pk):
     if request.method == 'POST':
         form = NewsletterCreationForm(request.POST, instance=newsletter)
         if form.is_valid():
-            newsletter = form.delete()
-            if newsletter.status == 'Published':
-                messages.success(request, 'email deleted')
+            newsletter.delete() 
+            messages.success(request, 'email deleted')
+            return redirect('control_newsletter_list')
     else:
         form = NewsletterCreationForm(instance=newsletter)
 
