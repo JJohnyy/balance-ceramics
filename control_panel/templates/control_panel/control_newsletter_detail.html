@@ -1,0 +1,35 @@
+{% extends 'control_base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/control_panel/control_panel.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="overlay"></div>
+
+<h1>email dashboard</h1>
+<div class="col-sm9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div>
+        <h2>{{ newsletter.subject }}</h2>
+    </div>
+    <div>
+        {{ newsletter.body }}
+    </div>
+    <div>
+        <button>edit</button>
+    </div>
+    <div>
+        <button>delete</button>
+    </div>
+    <div>
+        <a href="#">link</a>
+    </div>
+</div>
+
+{% endblock %}

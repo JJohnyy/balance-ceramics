@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib import messages
 from .models import NewsletterUsers, Newsletter
 from .forms import NewsletterUserForm, NewsletterCreationForm
@@ -110,7 +110,43 @@ def control_newsletter_list(request):
     }
 
     return render(request, 'control_panel/control_newsletter_list.html', context)
-    
+
+
+def control_newsletter_detail(request, pk):
+    newsletter = get_object_or_404(Newsletter, pk=pk)
+
+    context = {
+        'newsletter': newsletter,
+    }
+
+    return render(request, 'control_panel/control_newsletter_detail.html', context)
+
+  
+
+def control_newsletter_edit(request, pk):
+    newsletter = get_object_or_404(Newsletter, pk=pk)
+    if request.method == 'POST':
+        form = NewsletterCreationForm(request.POST, instance=newsletter)
+        if form.is_valid():
+            newsletter = form.save()
+            if newsletter.status == 'Published':
+                messages.success(request, 'email sent')
+                subject = newsletter.subject
+                body = newsletter.body
+                from_email = settings.EMAIL_BACKEND
+                for email in newsletter.objects.all():
+                    send_mail(subject=subject, message=body, from_email=from_email, recipient_list=[email], fail_silently=True)
+    else:
+        form = NewsletterCreationForm(instance=newsletter)
+
+    context = {
+        'form': form,
+        'newsletter': newsletter,
+    }
+
+    return redirect(request, 'control_newsletter_edit', context)
+
+
 
 def contact_view(request):
     return render(request, 'newsletters/contacts.html')

@@ -1,5 +1,32 @@
 {% extends "base.html" %}
 
+{% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/control_panel/control_panel.css' %}">
+{% endblock %}
+
+
+<div class="overlay"></div>
+
+
+<div class="navbar-wrapper">
+    <nav>
+        <ul>
+            <li>new letter</li>
+            <li>detail</li>
+            <li>edit</li>
+        </ul>
+    </nav>
+</div>
 {% block content %}
+<div class="navbar-wrapper">
+    <nav>
+        <ul>
+            <li>new letter</li>
+            <li>detail</li>
+            <li>edit</li>
+        </ul>
+    </nav>
+</div>
 {% endblock %}
