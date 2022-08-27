@@ -82,3 +82,9 @@ a:hover {
     color: #A5C9CA
 }
 
+/* control panel table */
+.table-responsive {
+    width: 80% !important;
+    margin: auto;
+}
+

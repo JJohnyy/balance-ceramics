@@ -92,7 +92,7 @@ def control_newsletter_list(request):
     paginator = Paginator(newsletters, 10)
     page = request.GET.get('page')
     try:
-         items = paginator.page(page)
+        items = paginator.page(page)
     except PageNotAnInteger:
         items = paginator.page(1)
     except EmptyPage:
@@ -111,5 +111,6 @@ def control_newsletter_list(request):
 
     return render(request, 'control_panel/control_newsletter_list.html', context)
     
+
 def contact_view(request):
     return render(request, 'newsletters/contacts.html')
