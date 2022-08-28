@@ -13,11 +13,18 @@
 
 <h1>email dashboard</h1>
 <div class="navbar-wrapper">
-    <nav>
-        <ul>
-            <li>new letter</li>
-            <li>detail</li>
-            <li>edit</li>
+    <nav class="nav justify-content-center m-auto">
+        <ul class="nav justify-content-center">
+            <li class="nav-item m-3">
+                <a class="nav-link" href="{% url 'control_newsletter_list' %}">
+                    email list
+                </a>
+            </li>
+            <li class="nav-item m-3">
+                <a class="nav-link" href="{% url 'control_newsletter' %}">
+                    new letter
+                </a>
+            </li>
         </ul>
     </nav>
 </div>

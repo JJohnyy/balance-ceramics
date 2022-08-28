@@ -2,6 +2,10 @@
     margin-top: 250px;
 }
 
+body {
+    height: 100vh;
+}
+
 h1 {
     text-align: center;
 }
@@ -55,6 +59,9 @@ label {
 
 .btn-wrapper {
     margin-top: 10px;
+    width: 80%;
+    margin: 5px auto;
+
 }
 
 .back-btn {
@@ -69,6 +76,7 @@ label {
 .back-btn:hover,
 .back-btn:active {
     text-decoration: none;
+    color: #2C3333;
 }
 
 a {

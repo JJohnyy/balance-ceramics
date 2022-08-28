@@ -25,7 +25,6 @@
         <thead>
             <th>Subject</th>
             <th>Status</th>
-            <th>Created</th>
             <th>Updated</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -35,7 +34,6 @@
             <tr>
                 <td> <a href="{% url 'control_newsletter_detail' item.pk %}"> {{ item.subject }} </a></td>
                 <td> {{ item.status }} </td>
-                <td> {{ item.created }} </td>
                 <td> {{ item.updated }} </td>
                 <td><a class="text-primary" href="{% url 'control_newsletter_edit' item.pk %}">edit</a></td>
                 <td><a href="{% url 'control_newsletter_delete' item.pk %}" class="text-danger">delete</a></td>
