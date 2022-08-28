@@ -46,3 +46,7 @@ html, body {
 .toast-capper {
     height: 2px;
 }
+
+#main {
+    height: 100vh;
+}

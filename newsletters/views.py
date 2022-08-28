@@ -96,7 +96,7 @@ def control_newsletter(request):
         if newsletter.status == 'Published':
             subject = newsletter.subject
             body = newsletter.body
-            from_email = settings.EMAIL_BACKEND
+            from_email = settings.DEFAULT_FROM_EMAIL
             for email in newsletter.email.all():
                 send_mail(
                     subject=subject,
@@ -158,7 +158,7 @@ def control_newsletter_edit(request, pk):
                 messages.success(request, 'email sent')
                 subject = newsletter.subject
                 body = newsletter.body
-                from_email = settings.EMAIL_BACKEND
+                from_email = settings.DEFAULT_FROM_EMAIL
                 for email in newsletter.email.all():
                     send_mail(
                         subject=subject,
