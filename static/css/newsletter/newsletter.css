@@ -5,6 +5,9 @@ html, body {
     height: 100vh;
 }
 
+.overlay {
+    margin-top: 50px;
+}
 
 
 .alert{
@@ -76,4 +79,12 @@ a:visited {
 a:hover {
     color: #A5C9CA
 }
+
+label, h3, .errorlist {
+    display: none !important
+}
+
+
+
+
 

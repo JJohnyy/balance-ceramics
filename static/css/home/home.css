@@ -5,9 +5,13 @@ html, body {
     height: 100vh;
 }
 
+.overlay {
+    margin-top: 50px;
+}
+
 .heading-1 {
     text-align: center;
-    margin-top: 350px;
+    margin-top: 50px;
 }
 
 

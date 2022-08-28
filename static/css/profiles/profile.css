@@ -5,6 +5,10 @@ html, body {
     height: 100vh;
 }
 
+.overlay {
+    margin-top: 50px;
+}
+
 .login, 
 .signup,
 .signout {
