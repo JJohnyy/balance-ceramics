@@ -4,11 +4,11 @@
 
     {% if items.has_previous %}
     <li class="page-item">
-    <a class="page-link active" href="?page={{ items.previous_page }}">Previous</a>
+    <a class="page-link" href="?page={{ items.previous_page }}">Previous</a>
     </li>
     {%else %}
-    <li class="page-item">
-      <a class="page-link disabled" href="?page={{ items.previous_page }}">Previous</a>
+    <li class="page-item disabled">
+      <a class="page-link " href="?page={{ items.previous_page }}">Previous</a>
       </li>
     {% endif %}
     {% for item in number_of_pages %}
@@ -20,11 +20,11 @@
     {% endfor %}
 {% if items.has_next %}
     <li class="page-item">
-      <a class="page-link active" href="?page={{ items.next_page }}">next</a>
+      <a class="page-link" href="?page={{ items.next_page }}">next</a>
     </li>
     {% else %}
-    <li class="page-item">
-      <a class="page-link disabled" href="?page={{ items.next_page }}">next</a>
+    <li class="page-item disabled">
+      <a class="page-link" href="?page={{ items.next_page }}">next</a>
     </li>
  {% endif %}
 
