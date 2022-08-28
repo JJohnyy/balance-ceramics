@@ -6,6 +6,7 @@ from .forms import NewsletterUserForm, NewsletterCreationForm
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.core.paginator import Paginator
 from django.template.loader import get_template
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -66,7 +67,7 @@ def newsletter_unsubscribe(request):
     }
     return render(request, 'newsletters/newsletters_unsubscribe.html', context)
 
-
+@login_required
 def control_newsletter(request):
     form = NewsletterCreationForm(request.POST)
     if form.is_valid():
@@ -85,7 +86,7 @@ def control_newsletter(request):
 
     return render(request, 'control_panel/control_newsletter.html', context)
 
-
+@login_required
 def control_newsletter_list(request):
     newsletters = Newsletter.objects.all()
 
@@ -101,7 +102,7 @@ def control_newsletter_list(request):
 
     return render(request, 'control_panel/control_newsletter_list.html', context)
 
-
+@login_required
 def control_newsletter_detail(request, pk):
     newsletter = get_object_or_404(Newsletter, pk=pk)
 
@@ -111,8 +112,8 @@ def control_newsletter_detail(request, pk):
 
     return render(request, 'control_panel/control_newsletter_detail.html', context)
 
-  
 
+@login_required
 def control_newsletter_edit(request, pk):
     newsletter = get_object_or_404(Newsletter, pk=pk)
     if request.method == 'POST':
@@ -128,6 +129,7 @@ def control_newsletter_edit(request, pk):
                     send_mail(subject=subject, message=body, from_email=from_email, recipient_list=[email], fail_silently=True)
     else:
         form = NewsletterCreationForm(instance=newsletter)
+        messages.success(request, 'email edited successfully')
 
     context = {
         'form': form,
@@ -136,7 +138,7 @@ def control_newsletter_edit(request, pk):
 
     return render(request, 'control_panel/control_newsletter_edit.html', context)
 
-
+@login_required
 def control_newsletter_delete(request, pk):
     newsletter = get_object_or_404(Newsletter, pk=pk)
     if request.method == 'POST':

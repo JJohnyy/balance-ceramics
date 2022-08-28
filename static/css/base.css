@@ -39,6 +39,7 @@ html, body {
 }
 
 .custom-toast {
+    margin: auto;
     overflow: visible;
 }
 
