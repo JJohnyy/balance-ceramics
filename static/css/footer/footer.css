@@ -37,6 +37,14 @@ html, body {
     text-decoration: none;
 }
 
+a {
+    color: #2C3333;
+}
+
+a:hover {
+    color: #395B64;
+}
+
 
 /* ------------------------------- bootstrap toasts */
 .message-container {

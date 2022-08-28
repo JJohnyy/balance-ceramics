@@ -34,7 +34,7 @@ def product_list(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
-  
+
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
@@ -47,7 +47,7 @@ def product_list(request):
                                "You didn't enter any search criteria!"
                                )
                 return redirect(reverse('products'))
-     
+
             queries = Q(name__icontains=query)
             products = products.filter(queries)
 

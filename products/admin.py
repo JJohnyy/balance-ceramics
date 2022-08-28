@@ -3,9 +3,10 @@ from . models import Mugs, MugsCategory
 
 # Register your models here.
 
+
 class MugsAdmin(admin.ModelAdmin):
     list_display = (
-        'name', 
+        'name',
         'category',
         'price',
         'image',
@@ -18,6 +19,7 @@ class MugsCategoryAdmin(admin.ModelAdmin):
         'name',
         'friendly_name',
     )
+
 
 admin.site.register(Mugs, MugsAdmin)
 admin.site.register(MugsCategory, MugsCategoryAdmin)

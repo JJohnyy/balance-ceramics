@@ -1,6 +1,4 @@
-
 from django.shortcuts import get_object_or_404
-
 from products.models import Mugs
 
 
@@ -13,7 +11,6 @@ def bag_contents(request):
 
     mugs = Mugs.objects.all()
 
-   
     for item_id, item_data in bag.items():
         if isinstance(item_data, int):
 

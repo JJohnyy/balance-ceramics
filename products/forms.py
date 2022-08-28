@@ -1,10 +1,9 @@
 from django import forms
-from .widgets import CustomClearableFileInput
 from .models import Mugs, MugsCategory
 
 
 class ProductForm(forms.ModelForm):
-    
+  
     class Meta:
         model = Mugs
         fields = '__all__'

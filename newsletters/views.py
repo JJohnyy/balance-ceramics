@@ -1,19 +1,19 @@
 from django.conf import settings
-from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .models import NewsletterUsers, Newsletter
-from .forms import NewsletterUserForm, NewsletterCreationForm
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.core.paginator import Paginator
 from django.template.loader import get_template
 from django.contrib.auth.decorators import login_required
+from .models import NewsletterUsers, Newsletter
+from .forms import NewsletterUserForm, NewsletterCreationForm
 
 
 # Create your views here.
 
 
 def newsletter_signup(request):
-    
+
     if request.method == 'POST':
         form = NewsletterUserForm(request.POST)
         if form.is_valid():
@@ -27,14 +27,21 @@ def newsletter_signup(request):
                 subject = "Thank you for joining our newsletters"
                 from_email = settings.EMAIL_BACKEND
                 to_email = [instance.email]
-                with open(str(settings.BASE_DIR) + "/newsletters/templates/newsletters/emails/sign_up_email.txt") as f:
+                with open(str
+                    (settings.BASE_DIR) +
+                        "/newsletters/templates/newsletters/emails/sign_up_email.txt"
+                        ) as f:
                     signup_message = f.read()
-                message = EmailMultiAlternatives(subject=subject, body=signup_message, from_email=from_email, to=to_email)
-                html_template = get_template('newsletters/sign_up_email.html').render()
+                message = EmailMultiAlternatives(
+                    subject=subject,
+                    body=signup_message,
+                    from_email=from_email,
+                    to=to_email
+                    )
+                html_template = get_template(
+                    'newsletters/sign_up_email.html').render()
                 message.attach_alternative(html_template, 'text/html')
                 message.send()
-                
-
                 return redirect('home')
     else:
         form = NewsletterUserForm()
@@ -54,20 +61,31 @@ def newsletter_unsubscribe(request):
             subject = "You have been unsubscribed"
             from_email = settings.EMAIL_BACKEND
             to_email = [instance.email]
-            with open(str(settings.BASE_DIR) + "/newsletters/templates/newsletters/emails/unsubscribe.txt") as f:
-                    signup_message = f.read()
-            message = EmailMultiAlternatives(subject=subject, body=signup_message, from_email=from_email, to=to_email)
-            html_template = get_template('newsletters/unsubscribe.html').render()
+            with open(
+                     str(settings.BASE_DIR) +
+                     "/newsletters/templates/newsletters/emails/unsubscribe.txt"
+                     ) as f:
+                signup_message = f.read()
+
+            message = EmailMultiAlternatives(
+                    subject=subject,
+                    body=signup_message,
+                    from_email=from_email,
+                    to=to_email
+                    )
+            html_template = get_template(
+                'newsletters/unsubscribe.html').render()
             message.attach_alternative(html_template, 'text/html')
             message.send()
             return redirect('home')
         else:
-            messages.error(request, 'your email is not in our databse') 
+            messages.error(request, 'your email is not in our databse')
             return redirect('home')
     context = {
         'form': form,
     }
     return render(request, 'newsletters/newsletters_unsubscribe.html', context)
+
 
 @login_required
 def control_newsletter(request):
@@ -80,13 +98,19 @@ def control_newsletter(request):
             body = newsletter.body
             from_email = settings.EMAIL_BACKEND
             for email in newsletter.email.all():
-                send_mail(subject=subject, from_email=from_email, recipient_list=[email], message=body, fail_silently=True)
-                
+                send_mail(
+                    subject=subject,
+                    from_email=from_email,
+                    recipient_list=[email],
+                    message=body,
+                    fail_silently=True
+                    )
     context = {
         'form': form,
     }
 
     return render(request, 'control_panel/control_newsletter.html', context)
+
 
 @login_required
 def control_newsletter_list(request):
@@ -102,7 +126,12 @@ def control_newsletter_list(request):
         'number_of_pages': number_of_pages,
     }
 
-    return render(request, 'control_panel/control_newsletter_list.html', context)
+    return render(
+        request,
+        'control_panel/control_newsletter_list.html',
+        context
+        )
+
 
 @login_required
 def control_newsletter_detail(request, pk):
@@ -112,7 +141,10 @@ def control_newsletter_detail(request, pk):
         'newsletter': newsletter,
     }
 
-    return render(request, 'control_panel/control_newsletter_detail.html', context)
+    return render(request,
+                  'control_panel/control_newsletter_detail.html',
+                  context
+                  )
 
 
 @login_required
@@ -128,7 +160,13 @@ def control_newsletter_edit(request, pk):
                 body = newsletter.body
                 from_email = settings.EMAIL_BACKEND
                 for email in newsletter.email.all():
-                    send_mail(subject=subject, message=body, from_email=from_email, recipient_list=[email], fail_silently=True)
+                    send_mail(
+                        subject=subject,
+                        message=body,
+                        from_email=from_email,
+                        recipient_list=[email],
+                        fail_silently=True
+                        )
     else:
         form = NewsletterCreationForm(instance=newsletter)
         messages.success(request, 'email edited successfully')
@@ -138,7 +176,11 @@ def control_newsletter_edit(request, pk):
         'newsletter': newsletter,
     }
 
-    return render(request, 'control_panel/control_newsletter_edit.html', context)
+    return render(request,
+                  'control_panel/control_newsletter_edit.html',
+                  context
+                  )
+
 
 @login_required
 def control_newsletter_delete(request, pk):
@@ -146,7 +188,7 @@ def control_newsletter_delete(request, pk):
     if request.method == 'POST':
         form = NewsletterCreationForm(request.POST, instance=newsletter)
         if form.is_valid():
-            newsletter.delete() 
+            newsletter.delete()
             messages.success(request, 'email deleted')
             return redirect('control_newsletter_list')
     else:
@@ -157,8 +199,10 @@ def control_newsletter_delete(request, pk):
         'newsletter': newsletter,
     }
 
-    return render(request, 'control_panel/control_newsletter_delete.html', context)
-
+    return render(request,
+                  'control_panel/control_newsletter_delete.html',
+                  context
+                  )
 
 
 def contact_view(request):
