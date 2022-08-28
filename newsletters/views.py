@@ -4,7 +4,7 @@ from django.contrib import messages
 from .models import NewsletterUsers, Newsletter
 from .forms import NewsletterUserForm, NewsletterCreationForm
 from django.core.mail import send_mail, EmailMultiAlternatives
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.paginator import Paginator
 from django.template.loader import get_template
 
 
@@ -91,22 +91,12 @@ def control_newsletter_list(request):
 
     paginator = Paginator(newsletters, 10)
     page = request.GET.get('page')
-    try:
-        items = paginator.page(page)
-    except PageNotAnInteger:
-        items = paginator.page(1)
-    except EmptyPage:
-        items = paginator.page(paginator.num_pages)
-
-    index = items.number - 1
-    max_index = len(paginator.page_range)
-    start_index = index - 5 if index >= 5 else 0
-    end_index = index + 5 if index <= max_index - 5 else max_index
-    page_range = paginator.page_range[start_index:end_index]
+    items = paginator.get_page(page)
+    number_of_pages = 'a' * items.paginator.num_pages
 
     context = {
         'items': items,
-        'page_range': page_range,
+        'number_of_pages': number_of_pages,
     }
 
     return render(request, 'control_panel/control_newsletter_list.html', context)
@@ -134,7 +124,7 @@ def control_newsletter_edit(request, pk):
                 subject = newsletter.subject
                 body = newsletter.body
                 from_email = settings.EMAIL_BACKEND
-                for email in newsletter.objects.all():
+                for email in newsletter.email.all():
                     send_mail(subject=subject, message=body, from_email=from_email, recipient_list=[email], fail_silently=True)
     else:
         form = NewsletterCreationForm(instance=newsletter)
