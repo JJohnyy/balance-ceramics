@@ -160,7 +160,7 @@ I hcreated a dummy page for the store.
 The fonts chosen by the client were both selected from Google Fonts.
 
 ### Colors
-![Colour Pallet](/media/images/color palette balance-ceramics.png)
+![Colour Pallet](media/images/color palette balance-ceramics.png)
 
 
 | Hex Value |Text | Button | Background |
@@ -169,9 +169,15 @@ The fonts chosen by the client were both selected from Google Fonts.
 |#2C3333|x|x||
 |#395864||x||
 |#A5C9CA||x||
-|#E7F6F2||x|
+|#E7F6F2|||x|
 
+&nbsp;
 
+All of the desired colour combinations have passed the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/ "WebAIM") and the results can be seen below.
+
+![result1](media/images/color1.png)
+![result2](media/images/color2.png)
+![result3](media/images/color3.png)
 
 
 
