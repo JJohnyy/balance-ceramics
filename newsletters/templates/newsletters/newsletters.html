@@ -1,3 +1,5 @@
+
+
 {% load static %}
 
 
@@ -27,7 +29,9 @@
             {{form.as_p}}
             <button class="news-btn" type="submit">Submit</button>
         </form>
-        <a class="back-btn" href="{% url 'home' %}">back</a>
+        <div class="btn-wrapper">
+            <a class="back-btn" href="{% url 'home' %}">back to shop</a>
+        </div>
     </div>
 </div>
 

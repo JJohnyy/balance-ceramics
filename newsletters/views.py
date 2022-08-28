@@ -20,9 +20,10 @@ def newsletter_signup(request):
             instance = form.save(commit=False)
             if NewsletterUsers.objects.filter(email=instance.email).exists():
                 messages.error(request, 'email alredy in our database')
+                return redirect('home')
             else:
                 form.save()
-                messages.error(request, 'email added successfully')
+                messages.success(request, 'email added successfully')
                 subject = "Thank you for joining our newsletters"
                 from_email = settings.EMAIL_BACKEND
                 to_email = [instance.email]
@@ -62,6 +63,7 @@ def newsletter_unsubscribe(request):
             return redirect('home')
         else:
             messages.error(request, 'your email is not in our databse') 
+            return redirect('home')
     context = {
         'form': form,
     }

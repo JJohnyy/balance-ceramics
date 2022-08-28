@@ -21,10 +21,10 @@ def add_to_bag(request, item_id):
 
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
-        if quantity > 1:
+        if quantity >= 1:
             messages.success(
                 request,
-                f'{mug.quantity} {product_name} another mug added to the basket'
+                f'{quantity} {product_name} another mug added to the basket'
                 )
     else:
         bag[item_id] = quantity
