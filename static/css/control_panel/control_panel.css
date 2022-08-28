@@ -1,5 +1,5 @@
 .overlay {
-    margin-top: 250px;
+    margin-top: 50px;
 }
 
 body {
@@ -84,10 +84,11 @@ a {
 }
 
 a:visited { 
-    color: #2C3333
+    color: #2C3333;
 }
 a:hover {
-    color: #A5C9CA
+    color: #A5C9CA;
+    text-decoration: none;
 }
 
 /* control panel table */

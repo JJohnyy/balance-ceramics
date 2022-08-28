@@ -45,4 +45,4 @@ def order_history(request, order_number):
         'from_profile': True,
     }
 
-    return render(request, 'checkout/checkout-success.html', context)
+    return render(request, 'checkout/checkout_success.html', context)
