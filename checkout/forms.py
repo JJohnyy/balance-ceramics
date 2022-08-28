@@ -1,6 +1,6 @@
 from django import forms
-
 from .models import Order
+
 
 class OrderForm(forms.ModelForm):
     """ Order form """
@@ -22,7 +22,7 @@ class OrderForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         placeholders = {
             'full_name': 'Full Name',
-            'email': 'Email Address',   
+            'email': 'Email Address',
             'phone_number': 'Phone Number',
             'postcode': 'Postal Code',
             'town_or_city': 'Town or City',

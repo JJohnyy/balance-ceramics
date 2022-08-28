@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from checkout.models import Order
 from .models import UserProfile
 from .forms import UserProfileForm
 
-from checkout.models import Order
 
 # Create your views here.
 
@@ -22,7 +22,9 @@ def profile(request):
             messages.success(request, f'Thanks {user_profile}, \
                 your details have been updated.')
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(
+                request, 'Update failed. Please ensure the form is valid.'
+            )
     else:
         form = UserProfileForm(instance=user_profile)
     orders = user_profile.orders.all()

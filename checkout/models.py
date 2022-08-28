@@ -1,13 +1,12 @@
 import uuid
-
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
-
 from products.models import Mugs
 from profiles.models import UserProfile
 
 # Create your models here.
+
 
 class Order(models.Model):
     """ Model for an order """
@@ -51,12 +50,12 @@ class Order(models.Model):
         )
     street_address1 = models.CharField(
         max_length=80,
-        null=False, 
+        null=False,
         blank=False
         )
     street_address2 = models.CharField(
-        max_length=80, 
-        null=True, 
+        max_length=80,
+        null=True,
         blank=True
         )
     date = models.DateTimeField(
@@ -149,5 +148,3 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f'{self.order}'
-
-

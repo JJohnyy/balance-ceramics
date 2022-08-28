@@ -5,6 +5,7 @@ from django.dispatch import receiver
 
 # Create your models here.
 
+
 class UserProfile(models.Model):
     """
     A user profile model for maintaining default

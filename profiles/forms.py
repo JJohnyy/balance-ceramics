@@ -2,6 +2,7 @@ from django import forms
 
 from .models import UserProfile
 
+
 class UserProfileForm(forms.ModelForm):
     """ UserProfile form """
     class Meta:
@@ -41,6 +42,3 @@ class UserProfileForm(forms.ModelForm):
         self.fields['default_town_or_city'].label = 'Town or City'
         self.fields['default_street_address1'].label = 'Street Address 1'
         self.fields['default_street_address2'].label = 'Street Address 2'
-
-
-
