@@ -163,12 +163,13 @@ The fonts chosen by the client were both selected from Google Fonts.
 ![Colour Pallet](/media/images/color palette balance-ceramics.png)
 
 
-| Hex Value | Text | Button | Background |
+| Hex Value |Text | Button | Background |
 | -- | -- | -- | -- |
-|#FFFFF|white||x|
-
-
-
+|#FFFFF|||x|
+|#2C3333|x|x||
+|#395864||x||
+|#A5C9CA||x||
+|#E7F6F2||x|
 
 
 
