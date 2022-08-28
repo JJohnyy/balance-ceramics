@@ -86,5 +86,23 @@ label, h3, .errorlist {
 
 
 
+/* ------------------------------- bootstrap toasts */
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    margin: auto;
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+
 
 
