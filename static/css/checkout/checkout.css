@@ -5,9 +5,6 @@ html, body {
     height: 100vh;
 }
 
-.overlay {
-    margin-top: 250px;
-}
 
 .StripeElement,
 .stripe-style-input {

@@ -6,10 +6,6 @@ html, body {
 }
 
 
-.overlay {
-    margin-top: 250px;
-}
-
 .login, .signup {
     width: 310px;
     margin: auto;
