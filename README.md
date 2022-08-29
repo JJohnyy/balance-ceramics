@@ -1,10 +1,10 @@
 
 # Balance ceramics
- ![amiresponsive](/workspace/balance-ceramics/static/media/images/readmedocs/amiresposive.png)
+ ![amiresponsive](static/media/images/readmedocs/amiresposive.png "responsive design")
 
 \
 &nbsp;
-Live link can be found here - [https://balance-ceramics.herokuapp.com/]
+Live link can be found here - [link](https://balance-ceramics.herokuapp.com/ "live app")
 \
 
 &nbsp;
