@@ -408,15 +408,15 @@ This is the part of creating the application, I have found hard to get my head a
 | File Name | Link | Result | Comments |
 |--|--|--|--|--|
 |allauthcss|[link](static/media/images/readmedocs/allauthcss.png "link")|ok||
-|bagcss|![link](static/media/images/readmedocs/bagcss.png)|ok||
-|basecss|![link](static/media/images/readmedocs/basecss.png)|ok||
-|contactscss|![link](static/media/images/readmedocs/contactscss.png)|ok||
-|control_panelcss|![link](static/media/images/readmedocs/control_panelcss.png)|ok||
-|homecss|![link](static/media/images/readmedocs/homecss.png)|ok||
-|checkoutcss|![link](static/media/images/readmedocs/checkoutcss.png)|ok||
-|newsletercss|![link](static/media/images/readmedocs/newslettercss.png)|ok||
-|productsscss|![link](static/media/images/readmedocs/productscss.png)|ok||
-|profilecss|![link](static/media/images/readmedocs/profile.css.png)|ok||
+|bagcss|[link](static/media/images/readmedocs/bagcss.png)|ok||
+|basecss|[link](static/media/images/readmedocs/base.css.png)|ok||
+|contactscss|[link](static/media/images/readmedocs/contactscss.png)|ok||
+|control_panelcss|[link](static/media/images/readmedocs/control_panelcss.png)|ok||
+|homecss|[link](static/media/images/readmedocs/homecss.png)|ok||
+|checkoutcss|[link](static/media/images/readmedocs/checkoutcss.png)|ok||
+|newsletercss|[link](static/media/images/readmedocs/newslettercss.png)|ok||
+|productsscss|[link](static/media/images/readmedocs/productscss.png)|ok||
+|profilecss|[link](static/media/images/readmedocs/profile.css.png)|ok||
 
 
 
