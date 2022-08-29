@@ -401,15 +401,15 @@ This is the part of creating the application, I have found hard to get my head a
 | File Name | File Path | Result | W3C | Comments |
 |--|--|--|--|--|
 |allauthcss|![link](static/media/images/readmedocs/allauthcss.png)|ok|||
-|bagcss|||||
-|basecss|||||
-|contactscss|||||
-|control_panelcss|||||
-|homecss|||||
-|checkoutcss|||||
-|newsletercss|||||
-|productsscss|||||
-|profilecss|||||
+|bagcss|![link](static/media/images/readmedocs/bagcss.png)|ok|||
+|basecss|![link](static/media/images/readmedocs/basecss.png)|ok|||
+|contactscss|![link](static/media/images/readmedocs/contactscss.png)|ok|||
+|control_panelcss|![link](static/media/images/readmedocs/control_panelcss.png)|ok|||
+|homecss|![link](static/media/images/readmedocs/homecss.png)|ok|||
+|checkoutcss|![link](static/media/images/readmedocs/checkoutcss.png)|ok|||
+|newsletercss|![link](static/media/images/readmedocs/newslettercss.png)|ok|||
+|productsscss|![link](static/media/images/readmedocs/productscss.png)|ok|||
+|profilecss|![link](static/media/images/readmedocs/profilecss.png)|ok|||
 
 
 
@@ -532,7 +532,7 @@ ALLOWED_HOSTS = ['YOUR_PROJECT_NAME.herokuapp.com', 'localhost']
 * Visit Stripe by following this [link](https://dashboard.stripe.com/register "Stirpe")
 * And register for an account, for this project as it is only set up for test payments the *activate payments* section can be skipped.
 * From the dashboard, click on the *Developers* and then on the lefthand side, *Webhooks*.
-* Click on the *Add endpoint button* and paste in the Heroku URL with `/checkout/wh/` included on the end, for example, this project would be `https://swanbourne-village-stores.herokuapp.com/checkout/wh/`
+* Click on the *Add endpoint button* and paste in the Heroku URL with `/checkout/wh/`
 * Add an optional description if required
 * Click the *Select events* button and mark the checkbox for *Select all events*, then click *
 Add events*.
