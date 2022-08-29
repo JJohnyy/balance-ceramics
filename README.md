@@ -343,13 +343,12 @@ There are a few ideas that I would like to implement in the future:
 |Django|Database Driven Framework| [django](https://en.wikipedia.org/wiki/Django_(web_framework) "django")|
 |gunicorn|HTTP Interface Server|[gunicorn](https://en.wikipedia.org/wiki/Gunicorn "gunicorn")|
 |psycopg2| Database adaptor | [psycopg2](https://wiki.postgresql.org/wiki/Psycopg "psycogg2")
-|cloudinary |Image management|[cloudinary](https://cloudinary.com/ "cloudinary")|
+| AWS |Image static management|[cloudinary](https://aws.amazon.com/ "AWS")|
 |django auth|User authentication|[auth](https://docs.djangoproject.com/en/3.2/topics/auth/ "auth")|
 | django crispy forms | Styling forms | [crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/ "crispy-forms")
 |Sitemap Generator| Generating the site map|[xml-sitemaps](https://www.xml-sitemaps.com/ "XML-Sitemaps.com")
 |HTML Validation| Validating HTML|[w3.org](https://validator.w3.org/ "W3C")
 |CSS Validation| Validating CSS|[w3.org](https://jigsaw.w3.org/css-validator/ "W3C")
-|JS Validation|Validating JS & jQuery|[jshint](https://jshint.com/ "JSHint")
 |PEP8|Validating python|[PEP8](http://pep8online.com/ "PEP8")
 | GitPod | Development environment |[Gitpod](https://www.gitpod.io/ "Gitpod")
 | Balsamic | Wireframes |[Balsamic](https://balsamiq.com/wireframes/ "Balsamic")
@@ -390,6 +389,14 @@ This is the part of creating the application, I have found hard to get my head a
 
 | Issue Number |  Title | Comments 
 |--|--|--|
+|1|newsletter details|ended up not using this template because it didnt provide anything extra to the user|
+|2|links-back to shop|changed color on hover to match the site|
+|3|labels|hid labels on subscibe and unsubscribe form to make them look cleaner|
+|4|subscribe, unsubscribe forms|moved them form the site to a clean page, becuase of being covered under footer on small screens- but this created another issue - they get squeezed ons mall screens|
+|5|edit buttons in newsletters list| had to change their color because of contrast issue|
+|6|control panel link|added control panel in a dropdown menu when user is admin|
+
+
 
 
 ### HTML
@@ -398,30 +405,67 @@ This is the part of creating the application, I have found hard to get my head a
 
 
 ### CSS
-| File Name | File Path | Result | W3C | Comments |
+| File Name | Link | Result | Comments |
 |--|--|--|--|--|
-|allauthcss|![link](static/media/images/readmedocs/allauthcss.png)|ok|||
-|bagcss|![link](static/media/images/readmedocs/bagcss.png)|ok|||
-|basecss|![link](static/media/images/readmedocs/basecss.png)|ok|||
-|contactscss|![link](static/media/images/readmedocs/contactscss.png)|ok|||
-|control_panelcss|![link](static/media/images/readmedocs/control_panelcss.png)|ok|||
-|homecss|![link](static/media/images/readmedocs/homecss.png)|ok|||
-|checkoutcss|![link](static/media/images/readmedocs/checkoutcss.png)|ok|||
-|newsletercss|![link](static/media/images/readmedocs/newslettercss.png)|ok|||
-|productsscss|![link](static/media/images/readmedocs/productscss.png)|ok|||
-|profilecss|![link](static/media/images/readmedocs/profilecss.png)|ok|||
+|allauthcss|![link](static/media/images/readmedocs/allauthcss.png)|ok||
+|bagcss|![link](static/media/images/readmedocs/bagcss.png)|ok||
+|basecss|![link](static/media/images/readmedocs/basecss.png)|ok||
+|contactscss|![link](static/media/images/readmedocs/contactscss.png)|ok||
+|control_panelcss|![link](static/media/images/readmedocs/control_panelcss.png)|ok||
+|homecss|![link](static/media/images/readmedocs/homecss.png)|ok||
+|checkoutcss|![link](static/media/images/readmedocs/checkoutcss.png)|ok||
+|newsletercss|![link](static/media/images/readmedocs/newslettercss.png)|ok||
+|productsscss|![link](static/media/images/readmedocs/productscss.png)|ok||
+|profilecss|![link](static/media/images/readmedocs/profile.css.png)|ok||
 
 
 
 
 ### Python
-| File Name | File Path | Result | PEP8 | Comments |
-|--|--|--|--|--|
+| File Name | link | Result | Comments |
+|--|--|--|--|
+|pep8bagcontexts|![link](static/media/images/readmedocs/pep8 bag contexts.png)|PASS||
+|pep8bagurls|![link](static/media/images/readmedocs/pep8 bag urls.png)|PASS||
+|pep8bagviews|![link](static/media/images/readmedocs/pep8 bag views.png)|PASS||
+|pep8controlpanelurls|![link](static/media/images/readmedocs/pep8 control panel urls.png)|PASS||
+|pep8homeurls|![link](static/media/images/readmedocs/pep8 home urls.png)|PASS||
+|pep8homeviews|![link](static/media/images/readmedocs/pep8 home views.png)|PASS||
+|pep8checkoutforms|![link](static/media/images/readmedocs/pep8 checkout forms.png)PASS||
+|pep8checkoutmodels|![link](static/media/images/readmedocs/pep8 checkout models.png)|PASS||
+|pep8checkoutsignals|![link](static/media/images/readmedocs/pep8 checkout signals.png)|PASS||
+|pep8checkouturls|![link](static/media/images/readmedocs/pep8 checkout urls.png)|PASSS||
+|pep8checkoutviews|![link](static/media/images/readmedocs/pep8 checkout views.png)|PASS||
+|pep8checkouturls|![link](static/media/images/readmedocs/pep8 checkout urls.png)|PASS||
+|pep8newsletterforms|![link](static/media/images/readmedocs/pep8 newsletters forms.png)|PASS||
+|pep8newslettermodels|![link](static/media/images/readmedocs/pep8 newsletters models.png)|PASS||
+|pep8newslettersviews|![link](static/media/images/readmedocs/pep8 newsletters views.png)|3warnings|line too long coulndt be whorten without braking the syntax of a code, indentation - coulndt fint the right spot even aftert many tries|
+|pep8productsadmin|![link](static/media/images/readmedocs/pep8 products admin.png)|PASS||
+|pep8productsforms|![link](static/media/images/readmedocs/pep8 products forms.png)|PASS||
+|pep8productsmodels|![link](static/media/images/readmedocs/pep8 products models.png)|PASS||
+|pep8productsurls|![link](static/media/images/readmedocs/pep8 products urls.png)|PASS||
+|pep8productsviews|![link](static/media/images/readmedocs/pep8 products views.png)|2warnings| aven after deleting white space couple of times, it stil came back every time|
+|pep8productswidgets|![link](static/media/images/readmedocs/pep8 products widgets.png)|1warning|couldnt shorten becaquse of a syntax|
+|pep8pprofilemodels|![link](static/media/images/readmedocs/pep8 profile models.png)|PASS||
+|pep8profileurls|![link](static/media/images/readmedocs/pep8 profile urls.png)|PASS||
+|pep8profileforms|![link](static/media/images/readmedocs/pep8 profile forms.png)|PASS||
+|pep8webhookhandler|![link](static/media/images/readmedocs/pep8 webhook handler.png)|3 warnings|couldnt shorten lines because of a syntax|
+|pep8webhooks|![link](static/media/images/readmedocs/pep8 webhooks.png)|PASS||
+
+
+
+
 
 
 ## Bugs
 | Issue Number |  Title | Comments 
 |--|--|--|
+|1|Newsletter edit message|system sends message on opening the form not on submiting it|
+|2|newsletter list|on small screens doesnt fit the site|
+|3|navbar|when on a contacts page, navbar is not 100% and has different color|
+|4|photo upload|when adding a product to a page thru product management - picture doesnt upload correctly - can be added thru edit screen and works fine then|
+|5|Profile -name|in a profile app isnt stored a name of the user|
+
+
 
 
 # Deployment
