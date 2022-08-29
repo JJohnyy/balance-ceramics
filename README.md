@@ -1,10 +1,10 @@
 
 # Balance ceramics
- <picuture>
+ ![amiresponsive](/workspace/balance-ceramics/static/media/images/readmedocs/amiresposive.png)
 
 \
 &nbsp;
-Live link can be found here - [link]
+Live link can be found here - [https://balance-ceramics.herokuapp.com/]
 \
 
 &nbsp;
