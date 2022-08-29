@@ -407,7 +407,7 @@ This is the part of creating the application, I have found hard to get my head a
 ### CSS
 | File Name | Link | Result | Comments |
 |--|--|--|--|--|
-|allauthcss|![link](static/media/images/readmedocs/allauthcss.png)|ok||
+|allauthcss|![link](static/media/images/readmedocs/allauthcss.png "link")|ok||
 |bagcss|![link](static/media/images/readmedocs/bagcss.png)|ok||
 |basecss|![link](static/media/images/readmedocs/basecss.png)|ok||
 |contactscss|![link](static/media/images/readmedocs/contactscss.png)|ok||
