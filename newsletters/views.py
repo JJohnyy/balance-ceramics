@@ -87,6 +87,7 @@ def newsletter_unsubscribe(request):
     return render(request, 'newsletters/newsletters_unsubscribe.html', context)
 
 
+# compose a new leter
 @login_required
 def control_newsletter(request):
     form = NewsletterCreationForm(request.POST)
@@ -94,6 +95,7 @@ def control_newsletter(request):
         instance = form.save()
         newsletter = Newsletter.objects.get(id=instance.id)
         if newsletter.status == 'Published':
+            messages.success(request, 'email sent')
             subject = newsletter.subject
             body = newsletter.body
             from_email = settings.DEFAULT_FROM_EMAIL

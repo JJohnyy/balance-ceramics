@@ -134,7 +134,19 @@ From the resulting interviews, the user goals have been defined:
 
 # Marketing
 Instagram is a primary marketing strategy for Balance Ceramics, with Facebook page created I wasnt allowed an access.
-I hcreated a dummy page for the store.
+I created a dummy page for the store. link is here [facebook](https://www.facebook.com/Balance-Ceramics-102421489274785)
+
+printscreen are icluded here
+
+- facebook 1
+ ![facebok](static/media/images/readmedocs/facebook1.png)
+
+- facebook 2
+![facebok](static/media/images/readmedocs/facebook2.png)
+
+- facebook 3
+![facebok](static/media/images/readmedocs/facebook3.png)
+
 
 \
 &nbsp;
@@ -424,32 +436,32 @@ This is the part of creating the application, I have found hard to get my head a
 ### Python
 | File Name | link | Result | Comments |
 |--|--|--|--|
-|pep8bagcontexts|![link](static/media/images/readmedocs/pep8 bag contexts.png)|PASS||
-|pep8bagurls|![link](static/media/images/readmedocs/pep8 bag urls.png)|PASS||
-|pep8bagviews|![link](static/media/images/readmedocs/pep8 bag views.png)|PASS||
-|pep8controlpanelurls|![link](static/media/images/readmedocs/pep8 control panel urls.png)|PASS||
-|pep8homeurls|![link](static/media/images/readmedocs/pep8 home urls.png)|PASS||
-|pep8homeviews|![link](static/media/images/readmedocs/pep8 home views.png)|PASS||
-|pep8checkoutforms|![link](static/media/images/readmedocs/pep8 checkout forms.png)PASS||
-|pep8checkoutmodels|![link](static/media/images/readmedocs/pep8 checkout models.png)|PASS||
-|pep8checkoutsignals|![link](static/media/images/readmedocs/pep8 checkout signals.png)|PASS||
-|pep8checkouturls|![link](static/media/images/readmedocs/pep8 checkout urls.png)|PASSS||
-|pep8checkoutviews|![link](static/media/images/readmedocs/pep8 checkout views.png)|PASS||
-|pep8checkouturls|![link](static/media/images/readmedocs/pep8 checkout urls.png)|PASS||
-|pep8newsletterforms|![link](static/media/images/readmedocs/pep8 newsletters forms.png)|PASS||
-|pep8newslettermodels|![link](static/media/images/readmedocs/pep8 newsletters models.png)|PASS||
-|pep8newslettersviews|![link](static/media/images/readmedocs/pep8 newsletters views.png)|3warnings|line too long coulndt be whorten without braking the syntax of a code, indentation - coulndt fint the right spot even aftert many tries|
-|pep8productsadmin|![link](static/media/images/readmedocs/pep8 products admin.png)|PASS||
-|pep8productsforms|![link](static/media/images/readmedocs/pep8 products forms.png)|PASS||
-|pep8productsmodels|![link](static/media/images/readmedocs/pep8 products models.png)|PASS||
-|pep8productsurls|![link](static/media/images/readmedocs/pep8 products urls.png)|PASS||
-|pep8productsviews|![link](static/media/images/readmedocs/pep8 products views.png)|2warnings| aven after deleting white space couple of times, it stil came back every time|
-|pep8productswidgets|![link](static/media/images/readmedocs/pep8 products widgets.png)|1warning|couldnt shorten becaquse of a syntax|
-|pep8pprofilemodels|![link](static/media/images/readmedocs/pep8 profile models.png)|PASS||
-|pep8profileurls|![link](static/media/images/readmedocs/pep8 profile urls.png)|PASS||
-|pep8profileforms|![link](static/media/images/readmedocs/pep8 profile forms.png)|PASS||
-|pep8webhookhandler|![link](static/media/images/readmedocs/pep8 webhook handler.png)|3 warnings|couldnt shorten lines because of a syntax|
-|pep8webhooks|![link](static/media/images/readmedocs/pep8 webhooks.png)|PASS||
+|pep8bagcontexts|[link](static/media/images/readmedocs/pep8 bag contexts.png)|PASS||
+|pep8bagurls|[link](static/media/images/readmedocs/pep8 bag urls.png)|PASS||
+|pep8bagviews|[link](static/media/images/readmedocs/pep8 bag views.png)|PASS||
+|pep8controlpanelurls|[link](static/media/images/readmedocs/pep8 control panel urls.png)|PASS||
+|pep8homeurls|[link](static/media/images/readmedocs/pep8 home urls.png)|PASS||
+|pep8homeviews|[link](static/media/images/readmedocs/pep8 home views.png)|PASS||
+|pep8checkoutforms|[link](static/media/images/readmedocs/pep8 checkout forms.png)PASS||
+|pep8checkoutmodels|[link](static/media/images/readmedocs/pep8 checkout models.png)|PASS||
+|pep8checkoutsignals|[link](static/media/images/readmedocs/pep8 checkout signals.png)|PASS||
+|pep8checkouturls|[link](static/media/images/readmedocs/pep8 checkout urls.png)|PASSS||
+|pep8checkoutviews|[link](static/media/images/readmedocs/pep8 checkout views.png)|PASS||
+|pep8checkouturls|[link](static/media/images/readmedocs/pep8 checkout urls.png)|PASS||
+|pep8newsletterforms|[link](static/media/images/readmedocs/pep8 newsletters forms.png)|PASS||
+|pep8newslettermodels|[link](static/media/images/readmedocs/pep8 newsletters models.png)|PASS||
+|pep8newslettersviews|[link](static/media/images/readmedocs/pep8 newsletters views.png)|3warnings|line too long coulndt be whorten without braking the syntax of a code, indentation - coulndt fint the right spot even aftert many tries|
+|pep8productsadmin|[link](static/media/images/readmedocs/pep8 products admin.png)|PASS||
+|pep8productsforms|[link](static/media/images/readmedocs/pep8 products forms.png)|PASS||
+|pep8productsmodels|[link](static/media/images/readmedocs/pep8 products models.png)|PASS||
+|pep8productsurls|[link](static/media/images/readmedocs/pep8 products urls.png)|PASS||
+|pep8productsviews|[link](static/media/images/readmedocs/pep8 products views.png)|2warnings| aven after deleting white space couple of times, it stil came back every time|
+|pep8productswidgets|[link](static/media/images/readmedocs/pep8 products widgets.png)|1warning|couldnt shorten becaquse of a syntax|
+|pep8pprofilemodels|[link](static/media/images/readmedocs/pep8 profile models.png)|PASS||
+|pep8profileurls|[link](static/media/images/readmedocs/pep8 profile urls.png)|PASS||
+|pep8profileforms|[link](static/media/images/readmedocs/pep8 profile forms.png)|PASS||
+|pep8webhookhandler|[link](static/media/images/readmedocs/pep8 webhook handler.png)|3 warnings|couldnt shorten lines because of a syntax|
+|pep8webhooks|[link](static/media/images/readmedocs/pep8 webhooks.png)|PASS||
 
 
 
