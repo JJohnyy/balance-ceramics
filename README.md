@@ -400,6 +400,18 @@ This is the part of creating the application, I have found hard to get my head a
 ### CSS
 | File Name | File Path | Result | W3C | Comments |
 |--|--|--|--|--|
+|allauthcss|![link](static/media/images/readmedocs/allauthcss.png)|ok|||
+|bagcss|||||
+|basecss|||||
+|contactscss|||||
+|control_panelcss|||||
+|homecss|||||
+|checkoutcss|||||
+|newsletercss|||||
+|productsscss|||||
+|profilecss|||||
+
+
 
 
 ### Python
