@@ -87,7 +87,7 @@ def newsletter_unsubscribe(request):
     return render(request, 'newsletters/newsletters_unsubscribe.html', context)
 
 
-# compose a new leter
+# compose a new letter
 @login_required
 def control_newsletter(request):
     form = NewsletterCreationForm(request.POST)
@@ -107,6 +107,7 @@ def control_newsletter(request):
                     message=body,
                     fail_silently=True
                     )
+            return redirect('newsletter')
     context = {
         'form': form,
     }

@@ -29,8 +29,6 @@ Live link can be found here - [link](https://balance-ceramics.herokuapp.com/ "li
         * Colours
         * Images
     * [Structure](#structure "Structure")
-        * Site Structure
-        * Data Schema
         * Models
         * Forms
     * [Features](#features "Features")
@@ -87,7 +85,6 @@ From the resulting interviews, the user goals have been defined:
 1. Quickly create orders and securely purchase
 1. Login and out functionality
 1. View contact details
-1. See reviews of the business
 1. Search through products
 
 &nbsp;
@@ -156,6 +153,7 @@ printscreen are icluded here
 
 
 # Wireframes
+since I ended up using mostly boutique ado project, there is no reason to include wireframes
 
 
 \
@@ -169,10 +167,18 @@ printscreen are icluded here
 
 ### Fonts
 
-The fonts chosen by the client were both selected from Google Fonts.
+The font chosen by the client selected from Google Fonts.
+font-family: 'Roboto', sans-serif;
+[link](https://fonts.google.com/specimen/Roboto)
 
 ### Colors
 ![ColourPallet](media/images/color palette balance-ceramics.png)
+
+#### Color contrast validation
+
+![colorcontrast](static/media/images/readmedocs/color1.png)
+![colorcontrast](static/media/images/readmedocs/color2.png)
+![colorcontrast](static/media/images/readmedocs/color3.png)
 
 
 | Hex Value |Text | Button | Background |
@@ -275,6 +281,10 @@ UserProfile|User|OnToOneField|on_delete=models.CASCADE|
 |updated||ĐateTimeField|auto_now=True|
 
 
+### Forms
+
+
+
 \
 &nbsp;
 [Back to Top](#table-of-contents)
@@ -283,41 +293,56 @@ UserProfile|User|OnToOneField|on_delete=models.CASCADE|
 
 # Features
 
+I decided not to include features from the whole shop, since most of it ws created during boutique ado project. I am including all fetures created by me in newsletters and control panel section. Of course testures from footer and contacts sections.
+
 ## Existing Features
 
 ### Navbar
 
 The navigation bar is fully responsive to all screen sizes. it includes a search bar that searches the menu and the user's session basket total. The basic view is if a user is not logged in, then there are other differences depending on the user's login access:
 
-- The user is not logged in, this is the basic view.
-
-![]('Desktop')
-![]('Mobile')
-
-
-- The user is logged in as a standard user
-![]('Desktop')
-![]('Mobile')
-
 - The user is logged in as admin
-![]('Desktop')
-![]('Mobile')
+![superuser navbar](static/media/images/readmedocs/superuser.png 'Desktop')
 
 
 ### Footer
+![footer](static/media/images/readmedocs/footer.png 'footer')
 
-
-### Homepage
-
-
-### Basket
-
-
-### Checkout 
-
-### Profile
 
 ### control panel
+
+-control panel without newsletters
+![controlpanel](static/media/images/readmedocs/emaillist.png 'control panel')
+
+- control panel with newsletters
+![controlpanel](static/media/images/readmedocs/emaillistwithnewsletters.png 'control panel')
+
+- compose a new letter
+![newletter](static/media/images/readmedocs/newletterform.png  'new letter')
+
+- edit/send  drafted letter
+![editletter](static/media/images/readmedocs/editletter.png 'edit letter')
+
+- delete created newsletter
+![deleteletter](static/media/images/readmedocs/delletter.png 'delete letter')
+
+- edit btn in control panel
+![editbtn](static/media/images/readmedocs/delbtn.png 'edit')
+
+-delete btn in control panel
+![delbtn](static/media/images/readmedocs/delbtn.png 'delete')
+
+- sub/ unsub form for newsletters
+![subform](static/media/images/readmedocs/sub_unsubform.png 'subform')
+
+-back to shop button feturing in whole control panel section
+![backbtn](static/media/images/readmedocs/backtoshopbutton.png 'back to shop btn')
+
+
+### contacts
+
+-accordion with fucts in a contacts section
+![accordion](static/media/images/readmedocs/accordion.png 'accordion')
 
 
 ## Features to be Implemented
@@ -378,9 +403,6 @@ There are a few ideas that I would like to implement in the future:
 \
 &nbsp;
 
-### UX Testing
-
-
 \
 &nbsp;
 [Back to Top](#table-of-contents)
@@ -388,7 +410,7 @@ There are a few ideas that I would like to implement in the future:
 &nbsp;
 
 ## Automated Testing
-This is the part of creating the application, I have found hard to get my head around. I have spent a lot of time reading the [django docs](https://docs.djangoproject.com/en/4.0/topics/testing/ "docs") and using the Code Institue lectures to try and help me, but unfortunately, I can admit I have a very long way to go until I'm comfortable creating these.
+This is the part of creating the application, I have found hard to get my head around. I have spent a lot of time reading the [django docs](https://docs.djangoproject.com/en/4.0/topics/testing/ "docs") but unfortunately, I can admit I have a very long way to go until I'm comfortable creating these.
 
 
 \
@@ -407,6 +429,7 @@ This is the part of creating the application, I have found hard to get my head a
 |4|subscribe, unsubscribe forms|moved them form the site to a clean page, becuase of being covered under footer on small screens- but this created another issue - they get squeezed ons mall screens|
 |5|edit buttons in newsletters list| had to change their color because of contrast issue|
 |6|control panel link|added control panel in a dropdown menu when user is admin|
+|7|sub / unsub forms|ended up putting them as a parf of web|
 
 
 
@@ -506,16 +529,9 @@ When you have your version of the original repository,
 * In the terminal run
 ```
 pip3 install -r requirements.txt
+
 ```
-* In the root directory create a file called **env.py** and add the following content, the content of these, must match the Config Vars in the Heroku deployment section
-
-```py
 import os
-
-os.environ['DATABASE_URL'] = "FROM HEROKU DEPLOYMENT SECTION, DATABASE_URL CONFIG VAR"
-os.environ['SECRET_KEY'] = "FROM HEROKU DEPLOYMENT SECTION SECRET_KEY CONFIG VAR"
-os.environ['CLOUDINARY_URL'] = "API ENVIRONMENT VARIABLE REMOVE 'CLOUDINARY_URL=' FROM BEGINING"
-os.environ['DEVELOP'] = '1'
 
 ```
 
