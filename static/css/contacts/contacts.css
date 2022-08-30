@@ -141,7 +141,7 @@ span {
       align-items: center;
     }
     .map-wrapper {
-        margin-bottom: 150px;
+        margin-bottom: 250px !important;
     }
   }
 
@@ -150,6 +150,9 @@ span {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    .contacts-items-wrapper {
+        margin-bottom: 150px;
     }
   }
 
