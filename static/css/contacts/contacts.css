@@ -96,6 +96,11 @@ a:hover {
     text-decoration: none;
 }
 
+
+.map-wrapper {
+    margin:auto;
+}
+
 /* ------------------------------- bootstrap toasts */
 .message-container {
     position: fixed;
