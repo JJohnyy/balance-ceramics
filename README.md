@@ -431,14 +431,17 @@ This is the part of creating the application, I have found hard to get my head a
 
 
 ### HTML
+
+There are two warnings going thru whole website from bootstrap
+
 | File Name | link | Result | Comments |
 |--|--|--|
-|addproducthtml|[addproduct](static/media/images/readmedocs/addproducthtml.png)||
-|contactshtml|[contacts](static/media/images/readmedocs/contactshtml.png)||
-|checkouthtml|[homepage](static/media/images/readmedocs/homepagehtml.png)||
-|productlisthtml|[checkout](static/media/images/readmedocs/productlisthtml.png)||
-|productdetailhtml|[productdetail](static/media/images/readmedocs/addproducthtml.png)||
-|productlisthtml|[productlist](static/media/images/readmedocs/productlisthtml.png)||
+|addproducthtml|[addproduct](static/media/images/readmedocs/addproducthtml.png)|2 warnings| from bootstrap|
+|contactshtml|[contacts](static/media/images/readmedocs/contactshtml.png)|2 warnings |from bootstrap|
+|checkouthtml|[homepage](static/media/images/readmedocs/homepagehtml.png)|4 warnings|2 from bootstrap 2 from development|
+|productlisthtml|[checkout](static/media/images/readmedocs/productlisthtml.png)|4 warnings|2 from bootstrap 2 from development|
+|productdetailhtml|[productdetail](static/media/images/readmedocs/addproducthtml.png)|4 warnings|2 from bootstrap 2 from development|
+
 
 
 ### CSS

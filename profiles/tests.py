@@ -25,7 +25,7 @@ class UserTestCast(TestCase):
         self.assertNotEqual(user_count, 0)
 
     def test_user_password(self):
-        user_a = User.objects.get(username="cfe")
+        user_a = User.objects.get(username="john")
         self.assertTrue(
             user_a.check_password(self.user_a_pw)
         )
