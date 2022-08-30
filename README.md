@@ -281,10 +281,6 @@ UserProfile|User|OnToOneField|on_delete=models.CASCADE|
 |updated||ĐateTimeField|auto_now=True|
 
 
-### Forms
-
-
-
 \
 &nbsp;
 [Back to Top](#table-of-contents)
@@ -435,8 +431,14 @@ This is the part of creating the application, I have found hard to get my head a
 
 
 ### HTML
-| File Name | File Path | Result | W3C | Comments |
-|--|--|--|--|--|
+| File Name | link | Result | Comments |
+|--|--|--|
+|addproducthtml|[addproduct](static/media/images/readmedocs/addproducthtml.png)||
+|contactshtml|[contacts](static/media/images/readmedocs/contactshtml.png)||
+|checkouthtml|[homepage](static/media/images/readmedocs/homepagehtml.png)||
+|productlisthtml|[checkout](static/media/images/readmedocs/productlisthtml.png)||
+|productdetailhtml|[productdetail](static/media/images/readmedocs/addproducthtml.png)||
+|productlisthtml|[productlist](static/media/images/readmedocs/productlisthtml.png)||
 
 
 ### CSS
