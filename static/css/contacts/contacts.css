@@ -98,7 +98,21 @@ a:hover {
 
 
 .map-wrapper {
-    margin:auto;
+    display: flex;
+    justify-content: center;
+}
+
+
+.contacts-items-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 253px;
+}
+
+span {
+    font-weight: bold;
+    line-height: 2em;
 }
 
 /* ------------------------------- bootstrap toasts */
@@ -126,7 +140,19 @@ a:hover {
       flex-direction: column;
       align-items: center;
     }
+    .map-wrapper {
+        margin-bottom: 150px;
+    }
   }
+
+  @media only screen and (max-width: 772px) {
+    .map-wrapper {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+
 
 
   @media only screen and (max-width: 512px) {
