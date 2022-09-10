@@ -28,7 +28,13 @@ html, body {
     background-color: #395864;
 }
 
+.footer-blocker {
+    height: 100vh;
+}
 
+.text-signout {
+    text-align: center;
+}
 
 /* ------------------------------- bootstrap toasts */
 .message-container {

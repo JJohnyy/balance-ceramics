@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'false'
+DEBUG = False
 
 ALLOWED_HOSTS = ['balance-ceramics.herokuapp.com', 'localhost']
 
@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'checkout',
     'newsletters',
     'control_panel',
-  
+ 
     'crispy_forms',
     'storages',
 ]

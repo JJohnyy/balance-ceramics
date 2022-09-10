@@ -2,13 +2,18 @@
 
 {% load crispy_forms_tags %}
 
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock %}
+
 {% load i18n %}
 {% load account socialaccount %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-<div class="overlay"></div>
 <h1 class="text-signout">{% trans "Sign In" %}</h1>
 
 {% get_providers as socialaccount_providers %}
